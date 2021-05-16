@@ -1,6 +1,8 @@
 package com.cg.cars.model;
 import java.time.LocalDate;
 
+import javax.persistence.Column;
+
 import org.springframework.stereotype.Component;
 @Component
 public class CarDTO {
@@ -11,6 +13,7 @@ public class CarDTO {
 	private String variant;
 	private LocalDate registrationYear;
 	private String registrationState;
+
 	
 	public CarDTO() {
 		super();

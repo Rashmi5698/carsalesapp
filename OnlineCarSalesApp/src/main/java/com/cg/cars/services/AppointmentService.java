@@ -2,6 +2,7 @@ package com.cg.cars.services;
 
 import java.util.List;
 import com.cg.cars.model.AppointmentDTO;
+
 import com.cg.cars.entities.Appointment;
 
 public interface AppointmentService {
@@ -16,8 +17,11 @@ public interface AppointmentService {
 	
 	public AppointmentDTO getAppointmentById(long id);
 	
+	//public AppointmentDTO removeAppointmentById(long id); 
 	
+	//public Appointment updateAppointmentById(long id, Appointment appointment);
 	
 	//public List<Appointment> getOpenAppointments();
+	
 
 }

@@ -3,8 +3,10 @@ package com.cg.cars.services.impl;
 import java.util.List;
 import java.util.Optional;
 
+
 import com.cg.cars.entities.Appointment;
 import com.cg.cars.services.AppointmentService;
+
 import com.cg.cars.model.AppointmentDTO;
 import com.cg.cars.repository.AppointmentRepository;
 import com.cg.cars.util.AppointmentUtils;
@@ -60,7 +62,13 @@ public List<AppointmentDTO> getAllAppointments(){
 /*public List<Appointment> getOpenAppointments(){
 		
 	}*/
+/*public AppointmentDTO removeAppointmentById(Long id) {
+	Appointment existAppointment=appointmentRepository.findById(id).orElse(null);
+    appointmentRepository.delete(existAppointment);
+    return AppointmentUtils.convertToAppointmentDto(existAppointment);
+}*/
 
+	
 }
 
 

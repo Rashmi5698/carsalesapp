@@ -20,6 +20,14 @@ public interface OrderService {
 	
 	public void updateOrder(OrderDTO orderdto);
 	
+	//public Order removeOrder(long id);
+	
+	//public Order  updateOrder(long id, Order order);
+	
+	
+	
+	
+	
 
 
 	

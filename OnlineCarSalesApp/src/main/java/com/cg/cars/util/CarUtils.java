@@ -20,6 +20,7 @@ public class CarUtils {
 	public static Car convertToCar(CarDTO dto) {
 		Car car= new Car();
 		car.setCarId(dto.getCarId());
+		car.setBrand(dto.getBrand());
 		car.setModel(dto.getModel());
 		car.setVariant(dto.getVariant());
 		car.setRegistrationState(dto.getRegistrationState());
@@ -30,6 +31,7 @@ public class CarUtils {
 	public static CarDTO convertToCarDto(Car car ) {
 		CarDTO dto=new CarDTO();
 		dto.setCarId(car.getCarId());
+		dto.setBrand(car.getBrand());
 		dto.setModel(car.getModel());
 		dto.setVariant(car.getVariant());
 		dto.setRegistrationState(car.getRegistrationState());

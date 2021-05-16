@@ -19,6 +19,12 @@ public interface CustomerService {
 	public List<CustomerDTO> getAllCustomers();
 	
 	public void updateCustomer(CustomerDTO customerdto);
+	
+	//public Customer removeCustomer(long custId);
+	
+	//public Customer updateCustomer(long custId, Customer customer);
+	
+	//public List<Customer> getCustomersByLocation();
 
 	
 }

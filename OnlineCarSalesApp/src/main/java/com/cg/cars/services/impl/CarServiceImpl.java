@@ -3,6 +3,7 @@ package com.cg.cars.services.impl;
 import java.util.List;
 import java.util.Optional;
 
+
 import com.cg.cars.entities.Car;
 import com.cg.cars.services.CarService;
 import com.cg.cars.model.CarDTO;
@@ -12,6 +13,8 @@ import com.cg.cars.repository.CarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.cg.cars.util.CarUtils;
+
+
 
 
 @Service
@@ -57,6 +60,23 @@ public List<CarDTO> getAllCars(){
 		List<Car> carList=carRepository.findAll();
 		return CarUtils.convertToCarDtoList(carList);
 		}
+
+public List<CarDTO> getCarsByBrand(String brand){
+	        List<Car> carexist=carRepository.findByBrand(brand);
+	        return CarUtils.convertToCarDtoList(carexist);
+	        
+	    }
+public List<CarDTO> getCarsByLocation(String registrationState){
+    List<Car> carexist=carRepository.findByLocation(registrationState);
+    return CarUtils.convertToCarDtoList(carexist);
+    
+}
+public List<CarDTO> getCarsByModel(String model){
+    List<Car> carexist=carRepository.findByModel(model);
+    return CarUtils.convertToCarDtoList(carexist);
+    
+}
+
 }
 
 

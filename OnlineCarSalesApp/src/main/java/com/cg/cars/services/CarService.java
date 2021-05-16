@@ -20,6 +20,17 @@ public interface CarService {
 	
 	public void updateCar(CarDTO cardto);
 	
+	//public Car removeCar(long id);
+	
+	//public Car updateCar(long id, Car car);
+
+	public List<CarDTO> getCarsByLocation(String registrationState);
+	
+	public List<CarDTO> getCarsByModel(String model);
+	
+	public List<CarDTO> getCarsByBrand(String brand);
+
+	
 
 
 	

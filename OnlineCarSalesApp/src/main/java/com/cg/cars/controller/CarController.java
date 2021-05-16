@@ -15,11 +15,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.cg.cars.services.CarService;
-import com.cg.cars.services.CarService;
+
+
 import com.cg.cars.model.CarDTO;
-import com.cg.cars.model.CarDTO;
+
 import com.cg.cars.entities.Car;
-import com.cg.cars.entities.Car;
+
 
 //@CrossOrigin(origins="http://localhost:3000")
 @RestController
@@ -67,6 +68,20 @@ public class CarController {
 		
 
 	}
-	
-
+	  @GetMapping("/view-car-byBrand/{brand:.+}")
+	    public ResponseEntity findCarByBrand(@PathVariable String brand){
+		  List<CarDTO> carDTO = carService.getCarsByBrand(brand);
+	        return new ResponseEntity(carDTO, HttpStatus.OK);
+	    }
+	  @GetMapping("/view-car-byModel/{model:.+}")
+	    public ResponseEntity findCarByModel(@PathVariable String model){
+		  List<CarDTO> carDTO = carService.getCarsByModel(model);
+	        return new ResponseEntity(carDTO, HttpStatus.OK);
+	    }
+	  @GetMapping("/view-car-byLocation/{registrationState:.+}")
+	    public ResponseEntity findCarByLocation(@PathVariable String registrationState){
+		  List<CarDTO> carDTO = carService.getCarsByLocation(registrationState);
+	        return new ResponseEntity(carDTO, HttpStatus.OK);
+	    }
+	 
 }

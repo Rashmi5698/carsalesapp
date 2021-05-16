@@ -19,6 +19,12 @@ public interface UserService {
 	public void deleteUser(UserDTO userdto); 
 	
 	public void updateUser(UserDTO userdto);
+
+	//public User signIn(User user);
+	
+	//public User signOut(User user);
+	
+	//public User changePassword(long id, User user);
 	
 
 

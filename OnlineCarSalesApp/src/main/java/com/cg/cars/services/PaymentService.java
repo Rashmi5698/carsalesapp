@@ -20,6 +20,12 @@ public interface PaymentService {
 	
 	public void updatePayment(PaymentDTO paymentdto);
 	
+	//public Payment removePayment(long id);
+	
+	//public Payment updatePayment(long id, Payment payment);
+	
+
+	
 
 
 	
