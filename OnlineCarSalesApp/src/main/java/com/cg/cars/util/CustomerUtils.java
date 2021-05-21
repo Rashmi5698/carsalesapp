@@ -26,7 +26,12 @@ public class CustomerUtils {
 		customer.setEmail(dto.getEmail());
 		customer.setContactNo(dto.getContactNo());
 		customer.setDob(dto.getDob());
-		//customer.setAddress(dto.getAddress());
+		customer.setAppointment(dto.getAppointment());
+		customer.setAddress(dto.getAddress());
+		customer.setIorder(dto.getIorder());
+		customer.setCar(dto.getCar());
+		customer.setUser(dto.getUser());
+		
 		
 	return customer;	
 	}
@@ -38,8 +43,12 @@ public class CustomerUtils {
 		dto.setEmail(customer.getEmail());
 		dto.setContactNo(customer.getContactNo());
 		dto.setDob(customer.getDob());
-		//dto.setAddress(customer.getAddress());
-		
+		dto.setUser(customer.getUser());
+		dto.setAppointment(dto.getAppointment());
+		dto.setAddress(customer.getAddress());
+		dto.setIorder(customer.getIorder());
+		dto.setCar(customer.getCar());
+		dto.setUser(customer.getUser());
 	return dto;	
 	}
 }

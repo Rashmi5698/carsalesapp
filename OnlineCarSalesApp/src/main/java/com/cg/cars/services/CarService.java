@@ -1,10 +1,10 @@
 package com.cg.cars.services;
 
 import java.util.List;
-
 import com.cg.cars.entities.Car;
-
+import com.cg.cars.exceptions.CarNotFoundException;
 import com.cg.cars.model.CarDTO;
+
 
 
 
@@ -12,26 +12,21 @@ public interface CarService {
 	
 	public CarDTO addCar(Car car);
 	
-	public CarDTO getCarById(long id);
+	public CarDTO getCarById(Long id) throws CarNotFoundException ;
 	
 	public List<CarDTO> getAllCars();
 	
-	public void deleteCar(CarDTO cardto); 
+	public CarDTO deleteCarById(Long id)throws CarNotFoundException; 
 	
-	public void updateCar(CarDTO cardto);
+	public Car updateCarById(Long id, Car CarRequest) throws CarNotFoundException;
 	
-	//public Car removeCar(long id);
-	
-	//public Car updateCar(long id, Car car);
-
 	public List<CarDTO> getCarsByLocation(String registrationState);
+			//throws LocationNotFoundException;
 	
 	public List<CarDTO> getCarsByModel(String model);
+			//throws ModelNotFoundException;
 	
 	public List<CarDTO> getCarsByBrand(String brand);
-
-	
-
-
+			//throws BrandNotFoundException;
 	
 }

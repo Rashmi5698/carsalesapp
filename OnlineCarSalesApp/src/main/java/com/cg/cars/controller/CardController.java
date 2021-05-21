@@ -1,11 +1,8 @@
 package com.cg.cars.controller;
 import java.util.List;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -15,10 +12,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.cg.cars.services.CardService;
-
 import com.cg.cars.model.CardDTO;
-
 import com.cg.cars.entities.Card;
+import com.cg.cars.exceptions.CardNotFoundException;
+
 
 
 //@CrossOrigin(origins="http://localhost:3000")
@@ -38,7 +35,7 @@ public class CardController {
 		return cardResponse;
 	}
 	@GetMapping("/view-card/{id}")
-	public ResponseEntity getCardById(@PathVariable String id) {
+	public ResponseEntity getCardById(@PathVariable Long id)throws CardNotFoundException {
 	
 		CardDTO addressDTO = cardService.getCardById(id);
 		
@@ -51,22 +48,20 @@ public class CardController {
 		
 		return cardService.getAllCards();
 	}
+	@DeleteMapping("/delete-payment/{id}")
+	public ResponseEntity<Object> deletePaymentById(@PathVariable Long id) throws CardNotFoundException{
 	
-	@DeleteMapping("/delete-card")
-	public ResponseEntity deleteCard(@RequestBody CardDTO carddto){
-	 cardService.deleteCard(carddto);
-	return new ResponseEntity("deleted successfully:",HttpStatus.OK);
-		
-		
-	}
+		cardService.deleteCardById(id);
 	
-	@PutMapping("/update-card")
-	public ResponseEntity updateCard(@RequestBody CardDTO carddto) {
-		cardService.updateCard(carddto);
-		return new ResponseEntity("Updated ", HttpStatus.OK);
-		
-
-	}
-	
-
+		return new ResponseEntity("deleted successfully:", HttpStatus.ACCEPTED);
 }
+	@PutMapping("/update-payment/{id}")
+	
+    public ResponseEntity updatePayment(@PathVariable Long id, @RequestBody Card cardRequest) throws CardNotFoundException {
+		cardService.updateCardById(id,cardRequest);
+		return new ResponseEntity("Updated ", HttpStatus.OK);
+	}
+	
+		
+
+	}

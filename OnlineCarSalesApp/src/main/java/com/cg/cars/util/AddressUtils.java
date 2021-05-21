@@ -18,23 +18,28 @@ public class AddressUtils {
 	
 	public static Address convertToAddress(AddressDTO dto) {
 		Address address= new Address();
+		address.setAddressId(dto.getAddressId());
 		address.setDoorNo(dto.getDoorNo());
 		address.setStreet(dto.getStreet());
 		address.setArea(dto.getArea());
 		address.setCity(dto.getCity());
 		address.setState(dto.getState());
 		address.setPincode(dto.getPincode());
+		address.setCustomers(dto.getCustomers());
 	return address;	
 	}
 	
 	public static AddressDTO convertToAddressDto(Address address ) {
 		AddressDTO dto=new AddressDTO();
+		dto.setAddressId(address.getAddressId());
 		dto.setDoorNo(address.getDoorNo());
 		dto.setStreet(address.getStreet());
 		dto.setArea(address.getArea());
 		dto.setCity(address.getCity());
 		dto.setState(address.getState());
 		dto.setPincode(address.getPincode());
+		dto.setCustomers(address.getCustomers());
+		
 	return dto;	
 	}
 }

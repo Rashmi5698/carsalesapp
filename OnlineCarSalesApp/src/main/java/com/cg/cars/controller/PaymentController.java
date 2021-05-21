@@ -1,11 +1,8 @@
 package com.cg.cars.controller;
 import java.util.List;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -15,11 +12,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.cg.cars.services.PaymentService;
-import com.cg.cars.services.PaymentService;
-import com.cg.cars.model.PaymentDTO;
 import com.cg.cars.model.PaymentDTO;
 import com.cg.cars.entities.Payment;
-import com.cg.cars.entities.Payment;
+import com.cg.cars.exceptions.PaymentNotFoundException;
+
 
 //@CrossOrigin(origins="http://localhost:3000")
 @RestController
@@ -38,7 +34,7 @@ public class PaymentController {
 		return paymentResponse;
 	}
 	@GetMapping("/view-payment/{id}")
-	public ResponseEntity getAddressById(@PathVariable long id) {
+	public ResponseEntity getAddressById(@PathVariable Long id) throws  PaymentNotFoundException{
 	
 		PaymentDTO addressDTO = paymentService.getPaymentById(id);
 		
@@ -51,22 +47,19 @@ public class PaymentController {
 		
 		return paymentService.getAllPayment();
 	}
+	@DeleteMapping("/delete-payment/{id}")
+	public ResponseEntity<Object> deletePaymentById(@PathVariable Long id) throws PaymentNotFoundException{
 	
-	@DeleteMapping("/delete-payment")
-	public ResponseEntity deletePayment(@RequestBody PaymentDTO paymentdto){
-	 paymentService.deletePayment(paymentdto);
-	return new ResponseEntity("deleted successfully:",HttpStatus.OK);
-		
-		
-	}
+		paymentService.deletePaymentById(id);
 	
-	@PutMapping("/update-payment")
-	public ResponseEntity updatePayment(@RequestBody PaymentDTO paymentdto) {
-		paymentService.updatePayment(paymentdto);
+		return new ResponseEntity("deleted successfully:", HttpStatus.ACCEPTED);
+}
+	@PutMapping("/update-payment/{id}")
+	
+    public ResponseEntity updatePayment(@PathVariable Long id, @RequestBody Payment paymentRequest) throws PaymentNotFoundException {
+		paymentService.updatePaymentById(id,paymentRequest);
 		return new ResponseEntity("Updated ", HttpStatus.OK);
-		
-
 	}
-	
+
 
 }

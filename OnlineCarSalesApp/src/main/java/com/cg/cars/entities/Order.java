@@ -7,27 +7,32 @@ import javax.persistence.*;
 public class Order {
 	
 	@Id
-	private long orderId;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long orderId;
 	@Column
 	private double amount;
 	private LocalDate billingDate;
-	//private Customer customer;
+	@OneToOne(cascade= {CascadeType.ALL,CascadeType.DETACH,CascadeType.REFRESH})
+	@JoinColumn(name="payment_id")
+	private Payment payment;
+	
+
 	public Order() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Order(long orderId, double amount, LocalDate billingDate) {
-			//, Customer customer) {
+	public Order(Long orderId, double amount, LocalDate billingDate,Payment payment) {
 		super();
 		this.orderId = orderId;
 		this.amount = amount;
 		this.billingDate = billingDate;
-		//this.customer = customer;
+		this.payment=payment;
+	
 	}
-	public long getOrderId() {
+	public Long getOrderId() {
 		return orderId;
 	}
-	public void setOrderId(long orderId) {
+	public void setOrderId(Long orderId) {
 		this.orderId = orderId;
 	}
 	public double getAmount() {
@@ -42,17 +47,20 @@ public class Order {
 	public void setBillingDate(LocalDate billingDate) {
 		this.billingDate = billingDate;
 	}
-	/*public Customer getCustomer() {
-		return customer;
+	
+	public Payment getPayment() {
+		return payment;
 	}
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}*/
+	public void setPayment(Payment payment) {
+		this.payment = payment;
+	}
+	
+	
 	@Override
 	public String toString() {
-		return "Order [orderId=" + orderId + ", amount=" + amount + ", billingDate=" + billingDate + "]";
-				//+ ", customer="+ customer + "]";
+		return "Order [orderId=" + orderId + ", amount=" + amount + ", billingDate=" + billingDate + ",Payment="+payment+"]";
 	}
+	
 	
 
 }

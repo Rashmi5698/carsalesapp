@@ -1,26 +1,28 @@
 package com.cg.cars.model;
-import com.cg.cars.entities.Customer;
 
+import com.cg.cars.entities.Payment;
 import java.time.LocalDate;
-import javax.persistence.*;
+
 import org.springframework.stereotype.Component;
 @Component
 public class OrderDTO {
 	private long orderId;
 	private double amount;
 	private LocalDate billingDate;
-	//private Customer customer;
+	private Payment payment;
+	
 	public OrderDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public OrderDTO(long orderId, double amount, LocalDate billingDate) {
+	public OrderDTO(long orderId, double amount, LocalDate billingDate,Payment payment) {
 			//, Customer customer) {
 		super();
 		this.orderId = orderId;
 		this.amount = amount;
 		this.billingDate = billingDate;
-		//this.customer = customer;
+		this.payment=payment;
+		
 	}
 	public long getOrderId() {
 		return orderId;
@@ -40,16 +42,18 @@ public class OrderDTO {
 	public void setBillingDate(LocalDate billingDate) {
 		this.billingDate = billingDate;
 	}
-	/*public Customer getCustomer() {
-		return customer;
+	public Payment getPayment() {
+		return payment;
 	}
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}*/
+	public void setPayment(Payment payment) {
+		this.payment = payment;
+	}
+	
+
 	@Override
 	public String toString() {
-		return "Order [orderId=" + orderId + ", amount=" + amount + ", billingDate=" + billingDate + "]";
-				//+ ", customer="+ customer + "]";
+		return "Order [orderId=" + orderId + ", amount=" + amount + ", billingDate=" + billingDate + ", payment="+ payment+"]";
+		
 	}
 	
 

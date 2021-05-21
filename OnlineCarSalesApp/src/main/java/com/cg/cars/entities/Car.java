@@ -5,32 +5,18 @@ import java.time.LocalDate;
 @Table(name="car")
 public class Car {
 	@Id
-	private long carId;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long carId;
 	@Column
 	private String brand;
 	private String model;
 	private String variant;
 	private LocalDate registrationYear;
 	private String registrationState;
-	
-	public Car(long carId, String brand, String model, String variant, LocalDate registrationYear,
-			String registrationState) {
-		super();
-		this.carId = carId;
-		this.brand = brand;
-		this.model = model;
-		this.variant = variant;
-		this.registrationYear = registrationYear;
-		this.registrationState = registrationState;
-	}
-	public Car() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public long getCarId() {
+	public Long getCarId() {
 		return carId;
 	}
-	public void setCarId(long carId) {
+	public void setCarId(Long carId) {
 		this.carId = carId;
 	}
 	public String getBrand() {
@@ -63,12 +49,23 @@ public class Car {
 	public void setRegistrationState(String registrationState) {
 		this.registrationState = registrationState;
 	}
+	public Car(Long carId, String brand, String model, String variant, LocalDate registrationYear,
+			String registrationState) {
+		super();
+		this.carId = carId;
+		this.brand = brand;
+		this.model = model;
+		this.variant = variant;
+		this.registrationYear = registrationYear;
+		this.registrationState = registrationState;
+	}
+	public Car() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	@Override
 	public String toString() {
 		return "Car [carId=" + carId + ", brand=" + brand + ", model=" + model + ", variant=" + variant
 				+ ", registrationYear=" + registrationYear + ", registrationState=" + registrationState + "]";
 	}
-	
-	
-
 }

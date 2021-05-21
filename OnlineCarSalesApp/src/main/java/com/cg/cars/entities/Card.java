@@ -5,22 +5,37 @@ import javax.persistence.*;
 @Entity
 @Table(name="Card")
 public class Card {
-	@Id
+	@Id	
+	@Column(name="CARD_NUMBER")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long cardNumber;
+
+	@Column(name="CARD_NAME")
 	private String cardName;
-	@Column
-	private String cardNumber;
+	@Column(name="CARD_EXPIRY")
     private LocalDate cardExpiry;
+	@Column(name="CVV")
     private int cvv;
-	public Card(String cardName, String cardNumber, LocalDate cardExpiry, int cvv) {
+   
+    
+	public Card( Long cardNumber,String cardName, LocalDate cardExpiry, int cvv) {
 		super();
-		this.cardName = cardName;
 		this.cardNumber = cardNumber;
+		this.cardName = cardName;
 		this.cardExpiry = cardExpiry;
 		this.cvv = cvv;
+		
+		
 	}
 	public Card() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+	public Long getCardNumber() {
+		return cardNumber;
+	}
+	public void setCardNumber(Long cardNumber) {
+		this.cardNumber = cardNumber;
 	}
 	public String getCardName() {
 		return cardName;
@@ -28,12 +43,7 @@ public class Card {
 	public void setCardName(String cardName) {
 		this.cardName = cardName;
 	}
-	public String getCardNumber() {
-		return cardNumber;
-	}
-	public void setCardNumber(String cardNumber) {
-		this.cardNumber = cardNumber;
-	}
+	
 	public LocalDate getCardExpiry() {
 		return cardExpiry;
 	}
@@ -46,10 +56,10 @@ public class Card {
 	public void setCvv(int cvv) {
 		this.cvv = cvv;
 	}
+
 	@Override
 	public String toString() {
-		return "Card [cardName=" + cardName + ", cardNumber=" + cardNumber + ", cardExpiry=" + cardExpiry + ", cvv="
+		return "Card [ cardNumber=+" + cardNumber + "cardName=" + cardName + ", cardExpiry=" + cardExpiry + ", cvv="
 				+ cvv + "]";
 	}
-    
 }

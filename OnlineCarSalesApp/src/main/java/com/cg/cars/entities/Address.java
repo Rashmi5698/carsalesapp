@@ -1,43 +1,61 @@
 package com.cg.cars.entities;
 
-import java.util.HashSet;
-import java.util.Set;
-
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.*;
 
 
 @Entity
-@Table(name="caddress")
+@Table(name="address")
 public class Address {
 	@Id
-	private int doorNo;
-	@Column
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="ADDRESS_ID")
+	private Long addressId;
+	@Column(name="DOOR_NO")
+	private Long doorNo;
+	@Column(name="STREET")
 	private String street;
+	@Column(name="AREA")
 	private String area;
+	@Column(name="CITY")
 	private String city;
+	@Column(name="STATE")
 	private String state;
-	private int pincode;
-	//@ManyToMany(fetch=FetchType.LAZY,mappedBy="customers")
-	//private Customer customers;
-	public Address(int doorNo, String street, String area, String city, String state, int pincode) {
-			//,Customer customers) {
+	@Column(name="PINCODE")
+	private Long pincode;
+	
+	
+	@ManyToMany(mappedBy="address",cascade = CascadeType.ALL)
+	private List<Customer>customers=new ArrayList<>();
+	
+	public Address(Long addressId,Long doorNo, String street, String area, String city, String state, Long pincode,List<Customer> customers) {
 		super();
+		this.addressId=addressId;
 		this.doorNo = doorNo;
 		this.street = street;
 		this.area = area;
 		this.city = city;
 		this.state = state;
 		this.pincode = pincode;
-		//this.customers = customers;
+		this.customers = customers;
 	}
 	public Address() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public int getDoorNo() {
+	
+	
+	public Long getAddressId() {
+		return addressId;
+	}
+	public void setAddressId(Long addressId) {
+		this.addressId = addressId;
+	}
+	public Long getDoorNo() {
 		return doorNo;
 	}
-	public void setDoorNo(int doorNo) {
+	public void setDoorNo(Long doorNo) {
 		this.doorNo = doorNo;
 	}
 	public String getStreet() {
@@ -64,28 +82,22 @@ public class Address {
 	public void setState(String state) {
 		this.state = state;
 	}
-	public int getPincode() {
+	public Long getPincode() {
 		return pincode;
 	}
-	public void setPincode(int pincode) {
+	public void setPincode(Long pincode) {
 		this.pincode = pincode;
 	}
-	/*public Customer getCustomers() {
+	public List<Customer> getCustomers() {
 		return customers;
 	}
-	public void setCustomers(Customer customers) {
+	public void setCustomers(List<Customer> customers) {
 		this.customers = customers;
-	}*/
+	}
+
 	@Override
 	public String toString() {
-		return "Address [doorNo=" + doorNo + ", street=" + street + ", area=" + area + ", city=" + city + ", state="
-				+ state + ", pincode=" + pincode + "]";
-						//+ ", customers=" + customers + "]";
+		return "Address [addressId="+addressId+",doorNo=" + doorNo + ", street=" + street + ", area=" + area + ", city=" + city + ", state="
+				+ state + ", pincode=" + pincode + ", customers=" + customers + "]";
 	}
-	
-	
-	
-	
-	
-	
 }

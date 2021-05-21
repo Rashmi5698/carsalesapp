@@ -1,20 +1,23 @@
 package com.cg.cars.model;
+
 import org.springframework.stereotype.Component;
 import java.time.LocalDate;
-import javax.persistence.*;
+
 @Component
 public class CardDTO {
 	
 	private String cardName;
-	private String cardNumber;
+	private long cardNumber;
     private LocalDate cardExpiry;
     private int cvv;
-	public CardDTO(String cardName, String cardNumber, LocalDate cardExpiry, int cvv) {
+ 
+	public CardDTO(long cardNumber,String cardName, LocalDate cardExpiry, int cvv) {
 		super();
-		this.cardName = cardName;
 		this.cardNumber = cardNumber;
+		this.cardName = cardName;
 		this.cardExpiry = cardExpiry;
 		this.cvv = cvv;
+		
 	}
 	public CardDTO() {
 		super();
@@ -26,10 +29,10 @@ public class CardDTO {
 	public void setCardName(String cardName) {
 		this.cardName = cardName;
 	}
-	public String getCardNumber() {
+	public long getCardNumber() {
 		return cardNumber;
 	}
-	public void setCardNumber(String cardNumber) {
+	public void setCardNumber(long cardNumber) {
 		this.cardNumber = cardNumber;
 	}
 	public LocalDate getCardExpiry() {
@@ -44,9 +47,11 @@ public class CardDTO {
 	public void setCvv(int cvv) {
 		this.cvv = cvv;
 	}
+	
+
 	@Override
 	public String toString() {
-		return "Card [cardName=" + cardName + ", cardNumber=" + cardNumber + ", cardExpiry=" + cardExpiry + ", cvv="
+		return "Card [cardNumber=+" + cardNumber+", cardName=" + cardName + ", cardExpiry=" + cardExpiry + ", cvv="
 				+ cvv + "]";
 	}
     

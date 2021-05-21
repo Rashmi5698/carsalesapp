@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 public class User {
 	@Id
-	private int userId;
+	private Long userId;
 	@Column
 	private String password;
 	private String role;
@@ -13,16 +13,16 @@ public class User {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public User(int userId, String password, String role) {
+	public User(Long userId, String password, String role) {
 		super();
 		this.userId = userId;
 		this.password = password;
 		this.role = role;
 	}
-	public int getUserId() {
+	public Long getUserId() {
 		return userId;
 	}
-	public void setUserId(int userId) {
+	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
 	public String getPassword() {

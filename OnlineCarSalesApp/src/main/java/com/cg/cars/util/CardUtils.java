@@ -3,10 +3,6 @@ package com.cg.cars.util;
 import com.cg.cars.model.CardDTO;
 import com.cg.cars.entities.Card;
 import java.util.List;
-
-import javax.persistence.Column;
-
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class CardUtils {
@@ -22,18 +18,17 @@ public class CardUtils {
 	
 	public static Card convertToCard(CardDTO dto) {
 		Card card= new Card();
-		card.setCardName(dto.getCardName());
 		card.setCardNumber(dto.getCardNumber());
+		card.setCardName(dto.getCardName());
 		card.setCardExpiry(dto.getCardExpiry());
 		card.setCvv(dto.getCvv());
-		
 	return card;	
 	}
 	
 	public static CardDTO convertToCardDto(Card card ) {
 		CardDTO dto=new CardDTO();
-		dto.setCardName(card.getCardName());
 		dto.setCardNumber(card.getCardNumber());
+		dto.setCardName(card.getCardName());
 		dto.setCardExpiry(card.getCardExpiry());
 		dto.setCvv(card.getCvv());
 	return dto;	

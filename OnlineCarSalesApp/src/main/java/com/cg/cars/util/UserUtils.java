@@ -18,10 +18,10 @@ public class UserUtils {
 	
 	public static User convertToUser(UserDTO dto) {
 		User iuser= new User();
-		iuser.setUserId(dto.getUserId());
+		
 		iuser.setPassword(dto.getPassword());
 		iuser.setRole(dto.getRole());
-		
+		iuser.setUserId(dto.getUserId());
 	return iuser;	
 	}
 	

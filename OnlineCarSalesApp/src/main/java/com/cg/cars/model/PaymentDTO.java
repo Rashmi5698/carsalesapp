@@ -1,7 +1,11 @@
 package com.cg.cars.model;
-import javax.persistence.*;
-import com.cg.cars.entities.Card;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Component;
+
+import com.cg.cars.entities.Card;
 @Component
 public class PaymentDTO {
 	
@@ -9,18 +13,17 @@ public class PaymentDTO {
 	
 	private String type;
 	private String status;
-	//private Card card;
+	private List<Card> card=new ArrayList<>();
 	public PaymentDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public PaymentDTO(long paymentId, String type, String status) {
-			//, Card card) {
+	public PaymentDTO(long paymentId, String type, String status, List<Card> card) {
 		super();
 		this.paymentId = paymentId;
 		this.type = type;
 		this.status = status;
-		//this.card = card;
+		this.card = card;
 	}
 	public long getPaymentId() {
 		return paymentId;
@@ -40,16 +43,14 @@ public class PaymentDTO {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	/*public Card getCard() {
+	public List<Card> getCard() {
 		return card;
 	}
-	public void setCard(Card card) {
+	public void setCard(List<Card> card) {
 		this.card = card;
-	}*/
+	}
 	@Override
 	public String toString() {
-		return "Payment [paymentId=" + paymentId + ", type=" + type + ", status=" + status + "]";
-				//+ ", card=" + card + "]";
+		return "PaymentDTO [paymentId=" + paymentId + ", type=" + type + ", status=" + status + ", card=" + card + "]";
 	}
-	
 }

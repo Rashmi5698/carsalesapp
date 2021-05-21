@@ -27,7 +27,7 @@ public class OrderUtils {
 		order.setOrderId(dto.getOrderId());
 		order.setAmount(dto.getAmount());
 		order.setBillingDate(dto.getBillingDate());
-		//order.setCustomer(dto.getCustomer());
+		order.setPayment(dto.getPayment());
 		
 	return order;	
 	}
@@ -37,8 +37,7 @@ public class OrderUtils {
 		dto.setOrderId(order.getOrderId());
 		dto.setAmount(order.getAmount());
 		dto.setBillingDate(order.getBillingDate());
-		//dto.setCustomer(order.getCustomer());
-	
+		dto.setPayment(order.getPayment());
 	return dto;	
 	}
 }

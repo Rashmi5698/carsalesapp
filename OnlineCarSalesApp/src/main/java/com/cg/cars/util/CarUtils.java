@@ -25,6 +25,7 @@ public class CarUtils {
 		car.setVariant(dto.getVariant());
 		car.setRegistrationState(dto.getRegistrationState());
 		car.setRegistrationYear(dto.getRegistrationYear());
+		
 	return car;	
 	}
 	
@@ -36,6 +37,7 @@ public class CarUtils {
 		dto.setVariant(car.getVariant());
 		dto.setRegistrationState(car.getRegistrationState());
 		dto.setRegistrationYear(car.getRegistrationYear());
+		
 	return dto;	
 	}
 }

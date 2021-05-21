@@ -23,8 +23,8 @@ public class AppointmentUtils {
 		appointment.setInspectionType(dto.getInspectionType());
 		appointment.setPreferredDate(dto.getPreferredDate());
 		appointment.setPreferredTime(dto.getPreferredTime());
-		//appointment.setCustomer(dto.getCustomer());
-		//appointment.setPayment(dto.getPayment());
+		appointment.setPayment(dto.getPayment());
+		
 	return appointment;	
 	}
 	
@@ -35,8 +35,8 @@ public class AppointmentUtils {
 		dto.setInspectionType(appointment.getInspectionType());
 		dto.setPreferredDate(appointment.getPreferredDate());
 		dto.setPreferredTime(appointment.getPreferredTime());
-		//dto.setCustomer(appointment.getCustomer());
-		//dto.setPayment(appointment.getPayment());
+		dto.setPayment(appointment.getPayment());
+		
 	return dto;	
 	}
 }

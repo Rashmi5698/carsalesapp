@@ -1,7 +1,5 @@
 package com.cg.cars.controller;
 import java.util.List;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.cg.cars.services.AppointmentService;
-
 import com.cg.cars.model.AppointmentDTO;
-
 import com.cg.cars.entities.Appointment;
+import com.cg.cars.exceptions.AppointmentNotFoundException;
+
 
 //@CrossOrigin(origins="http://localhost:3000")
 @RestController
@@ -25,6 +23,7 @@ import com.cg.cars.entities.Appointment;
 public class AppointmentController {
 	@Autowired
 	private AppointmentService appointmentService;
+	
 	@PostMapping("/add-appointment")
 	public ResponseEntity<Object> insertAppointment(@RequestBody Appointment appointment)
 	{
@@ -35,7 +34,7 @@ public class AppointmentController {
 		return appointmentResponse;
 	}
 	@GetMapping("/view-appointment/{id}")
-	public ResponseEntity getAppointment(@PathVariable int id) {
+	public ResponseEntity getAppointment(@PathVariable Long id) throws AppointmentNotFoundException{
 	
 		AppointmentDTO appointmentDTO = appointmentService.getAppointmentById(id);
 		
@@ -48,20 +47,22 @@ public class AppointmentController {
 		
 		return appointmentService.getAllAppointments();
 	}
+	@DeleteMapping("/delete-appointment/{id}")
+	public ResponseEntity<Object> deleteAppointmentById(@PathVariable Long id) throws AppointmentNotFoundException{
 	
-	@DeleteMapping("/delete-appointment")
-	public ResponseEntity deleteAppointment(@RequestBody AppointmentDTO appointmentdto){
-	 appointmentService.deleteAppointment(appointmentdto);
-	return new ResponseEntity("deleted successfully:",HttpStatus.OK);
-		
-		
-	}
+		appointmentService.deleteAppointmentById(id);
 	
-	@PutMapping("/update-appointment")
-	public ResponseEntity updateAppointment(@RequestBody AppointmentDTO appointmentdto) {
-		appointmentService.updateAppointment(appointmentdto);
-		return new ResponseEntity("Updated ", HttpStatus.OK);
-		
+		return new ResponseEntity("deleted successfully:", HttpStatus.ACCEPTED);
 
 	}
+	
+	
+	@PutMapping("/update-appointment/{id}")
+	
+    public ResponseEntity updateAppointment(@PathVariable Long id, @RequestBody Appointment appointmentRequest) throws AppointmentNotFoundException {
+		appointmentService.updateAppointmentById(id,appointmentRequest);
+		return new ResponseEntity("Updated ", HttpStatus.OK);
+	}
+
+	
 }
