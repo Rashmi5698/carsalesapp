@@ -6,7 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 
 @SpringBootApplication
-@ComponentScan(basePackages="com.cg.cars")
+//@ComponentScan(basePackages="com.cg.cars")
 public class OnlineCarSalesApp {
 
 	public static void main(String[] args) {

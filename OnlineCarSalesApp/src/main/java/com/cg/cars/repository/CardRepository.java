@@ -10,5 +10,5 @@ import com.cg.cars.entities.Card;
 @Repository
 public interface CardRepository extends JpaRepository<Card, Long> {
   
-	// List<Card> findByPaymentId(Long paymentId);
+
 }

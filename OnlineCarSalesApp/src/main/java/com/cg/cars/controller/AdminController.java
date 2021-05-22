@@ -15,13 +15,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.cg.cars.services.AdminService;
+
 import com.cg.cars.services.AdminService;
 import com.cg.cars.model.AdminDTO;
-import com.cg.cars.model.AdminDTO;
-import com.cg.cars.entities.Payment;
+
 import com.cg.cars.entities.Admin;
-import com.cg.cars.exceptions.AddressNotFoundException;
-import com.cg.cars.exceptions.PaymentNotFoundException;
+
 import com.cg.cars.exceptions.AdminNotFoundException;
 import com.cg.cars.entities.Admin;
 
@@ -29,6 +28,7 @@ import com.cg.cars.entities.Admin;
 @RestController
 @RequestMapping("/api/cars")
 public class AdminController {
+	
 	
 	@Autowired
 	private AdminService adminService;
@@ -55,6 +55,7 @@ public class AdminController {
 		
 		return adminService.getAllAdmins();
 	}
+	
 	@DeleteMapping("/delete-Admin/{id}")
 	public ResponseEntity<Object> deleteAdminById(@PathVariable Long id) throws AdminNotFoundException{
 	
@@ -68,7 +69,5 @@ public class AdminController {
 		adminService.updateAdminById(id,adminRequest);
 		return new ResponseEntity("Updated ", HttpStatus.OK);
 	}
-	
-	
 
 }

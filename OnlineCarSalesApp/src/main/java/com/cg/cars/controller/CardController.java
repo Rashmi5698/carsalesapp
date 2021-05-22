@@ -48,14 +48,14 @@ public class CardController {
 		
 		return cardService.getAllCards();
 	}
-	@DeleteMapping("/delete-payment/{id}")
+	@DeleteMapping("/delete-card/{id}")
 	public ResponseEntity<Object> deletePaymentById(@PathVariable Long id) throws CardNotFoundException{
 	
 		cardService.deleteCardById(id);
 	
 		return new ResponseEntity("deleted successfully:", HttpStatus.ACCEPTED);
 }
-	@PutMapping("/update-payment/{id}")
+	@PutMapping("/update-card/{id}")
 	
     public ResponseEntity updatePayment(@PathVariable Long id, @RequestBody Card cardRequest) throws CardNotFoundException {
 		cardService.updateCardById(id,cardRequest);

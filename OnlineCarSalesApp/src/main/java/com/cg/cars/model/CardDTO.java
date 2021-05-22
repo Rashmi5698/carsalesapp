@@ -9,9 +9,9 @@ public class CardDTO {
 	private String cardName;
 	private long cardNumber;
     private LocalDate cardExpiry;
-    private int cvv;
+    private Integer cvv;
  
-	public CardDTO(long cardNumber,String cardName, LocalDate cardExpiry, int cvv) {
+	public CardDTO(long cardNumber,String cardName, LocalDate cardExpiry, Integer cvv) {
 		super();
 		this.cardNumber = cardNumber;
 		this.cardName = cardName;
@@ -41,10 +41,10 @@ public class CardDTO {
 	public void setCardExpiry(LocalDate cardExpiry) {
 		this.cardExpiry = cardExpiry;
 	}
-	public int getCvv() {
+	public Integer getCvv() {
 		return cvv;
 	}
-	public void setCvv(int cvv) {
+	public void setCvv(Integer cvv) {
 		this.cvv = cvv;
 	}
 	

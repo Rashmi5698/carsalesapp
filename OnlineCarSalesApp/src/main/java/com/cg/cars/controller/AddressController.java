@@ -27,12 +27,7 @@ public class AddressController {
 	@Autowired
     private AddressService addressService;
 
-    @PostMapping("/customer/{userId}/address")
-    public ResponseEntity<Object> createAddress(@PathVariable(value = "userId") Long userId,
-                                       @RequestBody Address address) {
-        addressService.addAddress(userId, address);
-        return new ResponseEntity<Object>(address, HttpStatus.CREATED);
-    }
+   
     @PostMapping("/add-Address")
 	public ResponseEntity<Object> insertAddress(@RequestBody Address address)
 	{
@@ -71,28 +66,7 @@ public class AddressController {
 	}
    
 
-   /*
-    @GetMapping("/customer/{userId}/address")
-    public ResponseEntity getAddress() {
-        List<Address> address = addressService.getAllAddress();
-        return new ResponseEntity<>(address, HttpStatus.OK);
-    }
-    
-    @PutMapping("/customer/{userId}/address")
-    public ResponseEntity updateAddress(@PathVariable(value = "userId") Long userId,
-                                        @RequestBody Address addressRequest) throws AddressNotFoundException {
-        addressService.updateAddress(userId, addressRequest);
-        return new ResponseEntity<>(addressRequest, HttpStatus.OK);
-    }
-
-   
-
-    @DeleteMapping("/customer/{userId}/address/{addressId}")
-    public ResponseEntity deleteAddress(@PathVariable(value = "userId") Long userId,
-                                        @PathVariable(value = "addressId") Long addressId) throws AddressNotFoundException{
-        addressService.deleteAddress(userId,addressId);
-        return new ResponseEntity(HttpStatus.OK);
-    }*/
+ 
 }
 	
 	

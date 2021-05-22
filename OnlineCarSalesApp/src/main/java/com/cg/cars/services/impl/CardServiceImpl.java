@@ -62,6 +62,7 @@ public Card updateCardById(Long id, Card cardRequest) throws CardNotFoundExcepti
 }
 
 
+
 public List<CardDTO> getAllCards(){
 		List<Card> cardList=cardRepository.findAll();
 		return CardUtils.convertToCardDtoList(cardList);

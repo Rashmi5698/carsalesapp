@@ -15,10 +15,10 @@ public class Card {
 	@Column(name="CARD_EXPIRY")
     private LocalDate cardExpiry;
 	@Column(name="CVV")
-    private int cvv;
+    private Integer cvv;
    
     
-	public Card( Long cardNumber,String cardName, LocalDate cardExpiry, int cvv) {
+	public Card( Long cardNumber,String cardName, LocalDate cardExpiry, Integer cvv) {
 		super();
 		this.cardNumber = cardNumber;
 		this.cardName = cardName;
@@ -50,10 +50,10 @@ public class Card {
 	public void setCardExpiry(LocalDate cardExpiry) {
 		this.cardExpiry = cardExpiry;
 	}
-	public int getCvv() {
+	public Integer getCvv() {
 		return cvv;
 	}
-	public void setCvv(int cvv) {
+	public void setCvv(Integer cvv) {
 		this.cvv = cvv;
 	}
 
