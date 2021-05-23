@@ -47,7 +47,7 @@ public class AdminRepositoryTest {
 	}
 
 	@Test
-	public void testGetAllAdmins() throws Exception {
+	public void testGetAllAdmins() {
 		Admin admin1 = new Admin();
 
 		admin1.setPassword("rtef6");
@@ -66,7 +66,7 @@ public class AdminRepositoryTest {
 	}
 
 	@Test
-	public void testDeleteAdminById() throws Exception {
+	public void testDeleteAdminById() throws AdminNotFoundException {
 		Admin admin1 = new Admin();
 
 		admin1.setPassword("ggdyued");
@@ -86,7 +86,7 @@ public class AdminRepositoryTest {
 	}
 
 	@Test
-	public void testUpdateAdminById() {
+	public void testUpdateAdminById()throws AdminNotFoundException {
 		Admin admin2 = new Admin();
 		admin2.setPassword("ghgaj");
 

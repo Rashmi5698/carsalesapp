@@ -3,6 +3,8 @@ package com.cg.cars.repository;
 import org.junit.runner.RunWith;
 import com.cg.cars.entities.Customer;
 import com.cg.cars.entities.User;
+import com.cg.cars.exceptions.CustomerNotFoundException;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,7 +29,7 @@ public class CustomerRepositoryTest {
 	private TestEntityManager testEntityManager;
 
 	@Test
-	public void testNewCustomer() throws Exception {
+	public void testNewCustomer()  {
 		Customer customer = getCustomer();
 		Customer saveInDb = testEntityManager.persist(customer);
 		Customer getFromInDb = CustomerRepository.findById(saveInDb.getUserId()).get();
@@ -35,7 +37,7 @@ public class CustomerRepositoryTest {
 	}
 
 	@Test
-	public void testGetCustomerById() throws Exception {
+	public void testGetCustomerById() throws CustomerNotFoundException {
 		Customer customer = new Customer();
 
 		customer.setUserId(45L);
@@ -51,7 +53,7 @@ public class CustomerRepositoryTest {
 	}
 
 	@Test
-	public void testGetAllCustomers() throws Exception {
+	public void testGetAllCustomers()  {
 		Customer customer1 = new Customer();
 
 		customer1.setUserId(45L);
@@ -78,7 +80,7 @@ public class CustomerRepositoryTest {
 	}
 
 	@Test
-	public void testDeleteCustomerById() throws Exception {
+	public void testDeleteCustomerById() throws CustomerNotFoundException {
 		Customer customer1 = new Customer();
 
 		customer1.setUserId(45L);
@@ -106,7 +108,7 @@ public class CustomerRepositoryTest {
 	}
 
 	@Test
-	public void testUpdateCustomerById() {
+	public void testUpdateCustomerById()throws CustomerNotFoundException {
 		Customer customer2 = new Customer();
 		customer2.setUserId(45L);
 		customer2.setName("bhumi");

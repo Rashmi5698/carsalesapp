@@ -3,6 +3,8 @@ package com.cg.cars.repository;
 import org.junit.runner.RunWith;
 import com.cg.cars.entities.Payment;
 import com.cg.cars.entities.User;
+import com.cg.cars.exceptions.PaymentNotFoundException;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,7 +27,7 @@ public class PaymentRepositoryTest {
 	private TestEntityManager testEntityManager;
 
 	@Test
-	public void testNewPayment() throws Exception {
+	public void testNewPayment()  {
 		Payment payment = getPayment();
 		Payment saveInDb = testEntityManager.persist(payment);
 		Payment getFromInDb = paymentRepository.findById(saveInDb.getPaymentId()).get();
@@ -33,7 +35,7 @@ public class PaymentRepositoryTest {
 	}
 
 	@Test
-	public void testGetPaymentById() throws Exception {
+	public void testGetPaymentById() throws PaymentNotFoundException {
 		Payment payment = new Payment();
 
 		payment.setType("Online");
@@ -46,7 +48,7 @@ public class PaymentRepositoryTest {
 	}
 
 	@Test
-	public void testGetAllPayments() throws Exception {
+	public void testGetAllPayments()  {
 		Payment payment1 = new Payment();
 
 		payment1.setType("Online");
@@ -67,7 +69,7 @@ public class PaymentRepositoryTest {
 	}
 
 	@Test
-	public void testDeletePaymentById() throws Exception {
+	public void testDeletePaymentById() throws PaymentNotFoundException {
 		Payment payment1 = new Payment();
 
 		payment1.setType("Online");
@@ -89,7 +91,7 @@ public class PaymentRepositoryTest {
 	}
 
 	@Test
-	public void testUpdatePaymentById() {
+	public void testUpdatePaymentById() throws PaymentNotFoundException{
 		Payment payment2 = new Payment();
 		payment2.setType("Online");
 		payment2.setStatus("Done");

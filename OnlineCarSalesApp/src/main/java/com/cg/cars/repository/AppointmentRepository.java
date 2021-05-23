@@ -7,9 +7,4 @@ import com.cg.cars.entities.Appointment;
 @Repository
 public interface AppointmentRepository extends JpaRepository<Appointment, Long> {
 
-	
-	
-	
 }
-
-

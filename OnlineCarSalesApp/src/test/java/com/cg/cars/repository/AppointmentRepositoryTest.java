@@ -3,6 +3,8 @@ package com.cg.cars.repository;
 import org.junit.runner.RunWith;
 import com.cg.cars.entities.Appointment;
 import com.cg.cars.entities.User;
+import com.cg.cars.exceptions.AppointmentNotFoundException;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,7 +30,7 @@ public class AppointmentRepositoryTest {
 	private TestEntityManager testEntityManager;
 
 	@Test
-	public void testNewAppointment() throws Exception {
+	public void testNewAppointment() {
 		Appointment appointment = getAppointment();
 		Appointment saveInDb = testEntityManager.persist(appointment);
 		Appointment getFromInDb = appointmentRepository.findById(saveInDb.getAppointmentId()).get();
@@ -36,7 +38,7 @@ public class AppointmentRepositoryTest {
 	}
 
 	@Test
-	public void testGetAppointmentById() throws Exception {
+	public void testGetAppointmentById()throws AppointmentNotFoundException {
 		Appointment appointment = new Appointment();
 
 		appointment.setLocation("US");
@@ -51,7 +53,7 @@ public class AppointmentRepositoryTest {
 	}
 
 	@Test
-	public void testGetAllAppointment() throws Exception {
+	public void testGetAllAppointment() {
 		Appointment appointment = new Appointment();
 
 		appointment.setLocation("Uk");
@@ -76,7 +78,7 @@ public class AppointmentRepositoryTest {
 	}
 
 	@Test
-	public void testDeleteAddressById() throws Exception {
+	public void testDeleteAddressById() throws AppointmentNotFoundException{
 		Appointment appointment1 = new Appointment();
 
 		appointment1.setLocation("US");
@@ -102,7 +104,7 @@ public class AppointmentRepositoryTest {
 	}
 
 	@Test
-	public void testUpdateAppointmentById() {
+	public void testUpdateAppointmentById() throws AppointmentNotFoundException {
 		Appointment appointment2 = new Appointment();
 		appointment2.setLocation("US");
 		appointment2.setInspectionType("Home");

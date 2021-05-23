@@ -98,7 +98,7 @@ public class CardRepositoryTest {
 	}
 
 	@Test
-	public void testUpdateCardById() {
+	public void testUpdateCardById() throws CardNotFoundException{
 		Card card2 = new Card();
 		card2.setCardName("hdfc");
 		card2.setCardExpiry(LocalDate.now());

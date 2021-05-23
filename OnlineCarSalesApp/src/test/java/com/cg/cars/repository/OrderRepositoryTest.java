@@ -3,6 +3,8 @@ package com.cg.cars.repository;
 import org.junit.runner.RunWith;
 import com.cg.cars.entities.Order;
 import com.cg.cars.entities.User;
+import com.cg.cars.exceptions.OrderNotFoundException;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,7 +29,7 @@ public class OrderRepositoryTest {
 	private TestEntityManager testEntityManager;
 
 	@Test
-	public void testNewOrder() throws Exception {
+	public void testNewOrder()  {
 		Order order = getOrder();
 		Order saveInDb = testEntityManager.persist(order);
 		Order getFromInDb = orderRepository.findById(saveInDb.getOrderId()).get();
@@ -35,7 +37,7 @@ public class OrderRepositoryTest {
 	}
 
 	@Test
-	public void testGetOrderById() throws Exception {
+	public void testGetOrderById() throws OrderNotFoundException {
 		Order order = new Order();
 
 		order.setAmount(45.00);
@@ -48,7 +50,7 @@ public class OrderRepositoryTest {
 	}
 
 	@Test
-	public void testGetAllOrders() throws Exception {
+	public void testGetAllOrders() {
 		Order order1 = new Order();
 
 		order1.setAmount(45.00);
@@ -69,7 +71,7 @@ public class OrderRepositoryTest {
 	}
 
 	@Test
-	public void testDeleteOrderById() throws Exception {
+	public void testDeleteOrderById() throws OrderNotFoundException {
 		Order order1 = new Order();
 
 		order1.setAmount(45.00);
@@ -91,7 +93,7 @@ public class OrderRepositoryTest {
 	}
 
 	@Test
-	public void testUpdateOrderById() {
+	public void testUpdateOrderById()throws OrderNotFoundException {
 		Order order2 = new Order();
 		
 		order2.setAmount(45.00);

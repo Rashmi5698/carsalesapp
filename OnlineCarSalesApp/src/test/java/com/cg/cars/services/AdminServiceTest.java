@@ -1,9 +1,14 @@
 package com.cg.cars.services;
 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,13 +20,16 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.util.Assert;
-
 import com.cg.cars.entities.Admin;
 import com.cg.cars.exceptions.AdminNotFoundException;
 import com.cg.cars.model.AdminDTO;
 import com.cg.cars.repository.AdminRepository;
 import com.cg.cars.util.AdminUtils;
 
+import junit.framework.AssertionFailedError;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class AdminServiceTest {
@@ -96,5 +104,6 @@ public class AdminServiceTest {
 		Mockito.when(adminRepo.save(Admin)).thenReturn(Admin);
 		assertEquals(Admin.getAdminId(), 45L);
 	}
-
+	
+	
 }

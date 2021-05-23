@@ -8,29 +8,16 @@ import java.util.ArrayList;
 public class AddressUtils {
 	private AddressUtils() {
 	}
-	//converting into screen class
-	public static List<AddressDTO> convertToAddressDtoList(List<Address> list){
-		List<AddressDTO> dtolist=new ArrayList<AddressDTO>();
-		for(Address address :list)
+
+	public static List<AddressDTO> convertToAddressDtoList(List<Address> list) {
+		List<AddressDTO> dtolist = new ArrayList<AddressDTO>();
+		for (Address address : list)
 			dtolist.add(convertToAddressDto(address));
 		return dtolist;
-}
-	
-	/*public static Address convertToAddress(AddressDTO dto) {
-		Address address= new Address();
-		address.setAddressId(dto.getAddressId());
-		address.setDoorNo(dto.getDoorNo());
-		address.setStreet(dto.getStreet());
-		address.setArea(dto.getArea());
-		address.setCity(dto.getCity());
-		address.setState(dto.getState());
-		address.setPincode(dto.getPincode());
-		address.setCustomers(dto.getCustomers());
-	return address;	
-	}*/
-	
-	public static AddressDTO convertToAddressDto(Address address ) {
-		AddressDTO dto=new AddressDTO();
+	}
+
+	public static AddressDTO convertToAddressDto(Address address) {
+		AddressDTO dto = new AddressDTO();
 		dto.setAddressId(address.getAddressId());
 		dto.setDoorNo(address.getDoorNo());
 		dto.setStreet(address.getStreet());
@@ -39,7 +26,7 @@ public class AddressUtils {
 		dto.setState(address.getState());
 		dto.setPincode(address.getPincode());
 		dto.setCustomers(address.getCustomers());
-		
-	return dto;	
+
+		return dto;
 	}
 }

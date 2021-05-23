@@ -4,7 +4,7 @@ import org.junit.runner.RunWith;
 
 import com.cg.cars.entities.Admin;
 import com.cg.cars.entities.User;
-
+import com.cg.cars.exceptions.UserNotFoundException;
 import com.cg.cars.entities.User;
 import org.junit.Test;
 import org.junit.Assert;
@@ -28,7 +28,7 @@ public class UserRepositoryTest {
 	private TestEntityManager testEntityManager;
 
 	@Test
-	public void testNewUser() throws Exception {
+	public void testNewUser()  {
 		User user = getUser();
 		User saveInDb = testEntityManager.persist(user);
 		User getFromInDb = UserRepository.findById(saveInDb.getUserId()).get();
@@ -36,7 +36,7 @@ public class UserRepositoryTest {
 	}
 
 	@Test
-	public void testGetUserById() throws Exception {
+	public void testGetUserById() throws UserNotFoundException {
 		User user = new User();
 		user.setUserId(178L);
 		user.setPassword("Reshmi");
@@ -49,7 +49,7 @@ public class UserRepositoryTest {
 	}
 
 	@Test
-	public void testGetAllUsers() throws Exception {
+	public void testGetAllUsers()  {
 		User user1 = new User();
 		user1.setUserId(128L);
 		user1.setPassword("Reni");
@@ -70,7 +70,7 @@ public class UserRepositoryTest {
 	}
 
 	@Test
-	public void testDeleteUserById() throws Exception {
+	public void testDeleteUserById() throws UserNotFoundException  {
 		User user1 = new User();
 		user1.setUserId(12L);
 		user1.setPassword("Reni");
@@ -92,7 +92,7 @@ public class UserRepositoryTest {
 	}
 
 	@Test
-	public void testUpdateUserById() {
+	public void testUpdateUserById() throws UserNotFoundException {
 		User user2 = new User();
 		user2.setUserId(12L);
 		user2.setPassword("Ramya");

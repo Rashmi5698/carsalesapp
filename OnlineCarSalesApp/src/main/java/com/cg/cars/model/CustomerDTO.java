@@ -1,4 +1,5 @@
 package com.cg.cars.model;
+
 import com.cg.cars.entities.User;
 import com.cg.cars.entities.Appointment;
 import com.cg.cars.entities.Car;
@@ -8,37 +9,24 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 import com.cg.cars.entities.Address;
 import com.cg.cars.entities.Order;
+
 @Component
 public class CustomerDTO {
 	private Long userId;
 	private String name;
 	private String email;
 	private String contactNo;
-	private  LocalDate dob;
+	private LocalDate dob;
 	private User user;
-	private List<Appointment> appointment=new ArrayList<>();
-	private List<Address>address=new ArrayList<>();
-	private List<Order> iorder=new ArrayList<>();
-	private List<Car> car=new ArrayList<>();
+	private List<Appointment> appointment = new ArrayList<>();
+	private List<Address> address = new ArrayList<>();
+	private List<Order> iorder = new ArrayList<>();
+	private List<Car> car = new ArrayList<>();
+
 	public CustomerDTO() {
 		super();
-		// TODO Auto-generated constructor stub
-	}
 
-	/*public CustomerDTO(Long userId, String name, String email, String contactNo, LocalDate dob, List<Address> address,
-			List<Appointment> appointment, List<Order> iorder, List<Car> car, User user) {
-		super();
-		this.userId = userId;
-		this.name = name;
-		this.email = email;
-		this.contactNo = contactNo;
-		this.dob = dob;
-		this.address = address;
-		this.appointment = appointment;
-		this.iorder = iorder;
-		this.car = car;
-		this.user = user;
-	}*/
+	}
 
 	public Long getUserId() {
 		return userId;
@@ -120,12 +108,4 @@ public class CustomerDTO {
 		this.user = user;
 	}
 
-	/*@Override
-	public String toString() {
-		return "Customer [userId=" + userId + ", name=" + name + ", email=" + email + ", contactNo=" + contactNo
-				+ ", dob=" + dob + ", address=" + address + ", appointment=" + appointment + ", iorder=" + iorder
-				+ ", car=" + car + ", user=" + user + "]";
-	}*/
-	
-	
 }

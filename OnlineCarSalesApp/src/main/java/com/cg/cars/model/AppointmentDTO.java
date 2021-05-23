@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import org.springframework.stereotype.Component;
 import com.cg.cars.entities.Payment;
+
 @Component
 public class AppointmentDTO {
 
@@ -11,31 +12,13 @@ public class AppointmentDTO {
 	private String location;
 	private String inspectionType;
 	private LocalDate preferredDate;
-	private LocalTime preferredTime;	
+	private LocalTime preferredTime;
 	private Payment payment;
 
 	public AppointmentDTO() {
 		super();
-		// TODO Auto-generated constructor stub
+
 	}
-
-
-
-	/*public AppointmentDTO(Long appointmentId, String location, String inspectionType, LocalDate preferredDate,
-			LocalTime preferredTime,Payment payment) {
-		super();
-		this.appointmentId = appointmentId;
-		this.location = location;
-		this.inspectionType = inspectionType;
-		this.preferredDate = preferredDate;
-		this.preferredTime = preferredTime;
-	
-		this.payment = payment;
-	
-	}*/
-
-
-
 
 	public Long getAppointmentId() {
 		return appointmentId;
@@ -77,8 +60,6 @@ public class AppointmentDTO {
 		this.preferredTime = preferredTime;
 	}
 
-	
-
 	public Payment getPayment() {
 		return payment;
 	}
@@ -86,15 +67,5 @@ public class AppointmentDTO {
 	public void setPayment(Payment payment) {
 		this.payment = payment;
 	}
-	
-
-
-
-	//@Override
-	/*public String toString() {
-		return "AppointmentDTO [appointmentId=" + appointmentId + ", location=" + location + ", inspectionType="
-				+ inspectionType + ", preferredDate=" + preferredDate + ", preferredTime=" + preferredTime
-				+ ", payment=" + payment + "]";
-	}*/
 
 }

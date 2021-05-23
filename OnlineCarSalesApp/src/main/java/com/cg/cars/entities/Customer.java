@@ -1,73 +1,51 @@
 package com.cg.cars.entities;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
 @Entity
-@Table(name="customers")
+@Table(name = "customers")
 public class Customer {
 	@Id
-	@Column(name="CUSTOMER_ID")
-	
+	@Column(name = "CUSTOMER_ID")
+
 	private Long userId;
 	@Column
 	private String name;
 	private String email;
 	private String contactNo;
-	private  LocalDate dob;
+	private LocalDate dob;
 
-	
 	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(
-			name = "CUSTOMER_ADDRESS",
-			joinColumns = { @JoinColumn(name = "CUSTOMER_ID")},
-		inverseJoinColumns = { @JoinColumn(name = "ADDRESS_ID")})
-	private List<Address> address=new ArrayList<>();
-	
-	@OneToMany(cascade= {CascadeType.ALL,CascadeType.DETACH,CascadeType.REFRESH})
-	@JoinTable(
-			name = "CUSTOMER_APPOINTMENT",
-			joinColumns = { @JoinColumn(name = "CUSTOMER_ID")},
-		inverseJoinColumns = { @JoinColumn(name = "APPOINTMENT_ID")})
-	private List<Appointment> appointment=new ArrayList<>();
-	
-	@OneToMany(cascade= {CascadeType.ALL,CascadeType.DETACH,CascadeType.REFRESH})
-	@JoinTable(
-			name = "CUSTOMER_ORDER",
-			joinColumns = { @JoinColumn(name = "CUSTOMER_ID")},
-		inverseJoinColumns = { @JoinColumn(name = "ORDER_ID")})
-	private List<Order> iorder=new ArrayList<>();
-	
-	@OneToMany(cascade= {CascadeType.ALL,CascadeType.DETACH,CascadeType.REFRESH})
-	@JoinTable(
-			name = "CUSTOMER_CAR",
-			joinColumns = { @JoinColumn(name = "CUSTOMER_ID")},
-		inverseJoinColumns = { @JoinColumn(name = "CAR_ID")})
-	private List<Car> car=new ArrayList<>();
-	
-	@OneToOne(cascade= {CascadeType.ALL,CascadeType.DETACH,CascadeType.REFRESH})
-	@JoinColumn(name="user_id")
+	@JoinTable(name = "CUSTOMER_ADDRESS", joinColumns = { @JoinColumn(name = "CUSTOMER_ID") }, inverseJoinColumns = {
+			@JoinColumn(name = "ADDRESS_ID") })
+	private List<Address> address = new ArrayList<>();
+
+	@OneToMany(cascade = { CascadeType.ALL, CascadeType.DETACH, CascadeType.REFRESH })
+	@JoinTable(name = "CUSTOMER_APPOINTMENT", joinColumns = {
+			@JoinColumn(name = "CUSTOMER_ID") }, inverseJoinColumns = { @JoinColumn(name = "APPOINTMENT_ID") })
+	private List<Appointment> appointment = new ArrayList<>();
+
+	@OneToMany(cascade = { CascadeType.ALL, CascadeType.DETACH, CascadeType.REFRESH })
+	@JoinTable(name = "CUSTOMER_ORDER", joinColumns = { @JoinColumn(name = "CUSTOMER_ID") }, inverseJoinColumns = {
+			@JoinColumn(name = "ORDER_ID") })
+	private List<Order> iorder = new ArrayList<>();
+
+	@OneToMany(cascade = { CascadeType.ALL, CascadeType.DETACH, CascadeType.REFRESH })
+	@JoinTable(name = "CUSTOMER_CAR", joinColumns = { @JoinColumn(name = "CUSTOMER_ID") }, inverseJoinColumns = {
+			@JoinColumn(name = "CAR_ID") })
+	private List<Car> car = new ArrayList<>();
+
+	@OneToOne(cascade = { CascadeType.ALL, CascadeType.DETACH, CascadeType.REFRESH })
+	@JoinColumn(name = "user_id")
 	private User user;
 
 	public Customer() {
 		super();
-		// TODO Auto-generated constructor stub
-	}
 
-	/*public Customer(Long userId, String name, String email, String contactNo, LocalDate dob, List<Address> address,
-			List<Appointment> appointment, List<Order> iorder, List<Car> car, User user) {
-		super();
-		this.userId = userId;
-		this.name = name;
-		this.email = email;
-		this.contactNo = contactNo;
-		this.dob = dob;
-		this.address = address;
-		this.appointment = appointment;
-		this.iorder = iorder;
-		this.car = car;
-		this.user = user;
-	}*/
+	}
 
 	public Long getUserId() {
 		return userId;
@@ -113,25 +91,26 @@ public class Customer {
 		return address;
 	}
 
-	public void setAddress(List<Address> address) {
-		this.address = address;
-	}
+	/*
+	 * public void setAddress(List<Address> address) { this.address = address; }
+	 */
 
 	public List<Appointment> getAppointment() {
 		return appointment;
 	}
 
-	public void setAppointment(List<Appointment> appointment) {
-		this.appointment = appointment;
-	}
+	/*
+	 * public void setAppointment(List<Appointment> appointment) { this.appointment
+	 * = appointment; }
+	 */
 
 	public List<Order> getIorder() {
 		return iorder;
 	}
 
-	public void setIorder(List<Order> iorder) {
-		this.iorder = iorder;
-	}
+	/*
+	 * public void setIorder(List<Order> iorder) { this.iorder = iorder; }
+	 */
 
 	public List<Car> getCar() {
 		return car;
@@ -149,15 +128,4 @@ public class Customer {
 		this.user = user;
 	}
 
-	/*@Override
-	public String toString() {
-		return "Customer [userId=" + userId + ", name=" + name + ", email=" + email + ", contactNo=" + contactNo
-				+ ", dob=" + dob + ", address=" + address + ", appointment=" + appointment + ", iorder=" + iorder
-				+ ", car=" + car + ", user=" + user + "]";
-	}*/
-	
-	
 }
-	
-	
-	

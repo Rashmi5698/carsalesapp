@@ -3,130 +3,108 @@ package com.cg.cars.services.impl;
 import java.util.List;
 import java.util.Optional;
 
-
 import com.cg.cars.entities.Car;
+import com.cg.cars.entities.Card;
 import com.cg.cars.exceptions.CarNotFoundException;
 import com.cg.cars.services.CarService;
 import com.cg.cars.model.CarDTO;
 import com.cg.cars.repository.CarRepository;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.cg.cars.util.CarUtils;
 
 @Service
-public class CarServiceImpl implements CarService{
-	
+public class CarServiceImpl implements CarService {
+	static final Logger LOGGER = LoggerFactory.getLogger(CarServiceImpl.class);
+
 	@Autowired
 	private CarRepository carRepository;
-	
-	
-public CarDTO addCar(Car car){
-	Car carEntity=carRepository.save(car);
-	return CarUtils.convertToCarDto(carEntity);
-}
 
+	public CarDTO addCar(Car car) {
 
-public void deleteCar(CarDTO cardto) {
-	
-	carRepository.delete(CarUtils.convertToCar(cardto));
-	
-}
-	
-public void updateCar(CarDTO cardto) {
-	
-	carRepository.save(CarUtils.convertToCar(cardto));
-			
-	
-}
-
-public CarDTO getCarById(Long id) throws CarNotFoundException {
-	Optional<Car> existCar=carRepository.findById(id);
-	if(existCar.isPresent()) {
-		Car car=existCar.get();
-	return CarUtils.convertToCarDto(car);
-}
-	else {
-		throw new CarNotFoundException("Car with the id not found");
+		LOGGER.info("addCar() service is initiated");
+		Car carEntity = carRepository.save(car);
+		LOGGER.info("addCar() service has executed");
+		return CarUtils.convertToCarDto(carEntity);
 	}
-	
-}
 
+	public CarDTO getCarById(Long id) throws CarNotFoundException {
+		LOGGER.info("getCarById() service is initiated");
+		Optional<Car> existCar = carRepository.findById(id);
+		if (existCar.isPresent()) {
+			Car car = existCar.get();
 
-public List<CarDTO> getAllCars(){
-		List<Car> carList=carRepository.findAll();
-		return CarUtils.convertToCarDtoList(carList);
+			LOGGER.info("getCarById() service has executed");
+			return CarUtils.convertToCarDto(car);
+		} else {
+			throw new CarNotFoundException("Car with the id not found");
 		}
 
-public List<CarDTO> getCarsByBrand(String brand){
-	        List<Car> carexist=carRepository.findByBrand(brand);
-	        return CarUtils.convertToCarDtoList(carexist);
-	        
-	    }
-public List<CarDTO> getCarsByLocation(String registrationState){
-    List<Car> carexist=carRepository.findByLocation(registrationState);
-    return CarUtils.convertToCarDtoList(carexist);
-    
-}
-public List<CarDTO> getCarsByModel(String model){
-    List<Car> carexist=carRepository.findByModel(model);
-    return CarUtils.convertToCarDtoList(carexist);
-}
-/*
-public List<CarDTO> getCarsByModel(String model) throws ModelNotFoundException{
-    List<Car> carexist=carRepository.findByModel(model);
-    if(carexist.isPresent()) {
-    	Car car=carexist.get();
-    return CarUtils.convertToCarDto(car);
-    }
-    else {
-    	throw new ModelNotFoundException("Car with the model not found");
-    }
-
-}
-public List<CarDTO> getCarsByBrand(String brand) throws BrandNotFoundException{
-    List<Car> carexist=carRepository.findByBrand(brand);
-    if(carexist.isPresent()) {
-    	Car car=carexist.get();
-    return CarUtils.convertToCarDtoList(car);
-    }
-    else {
-    	throw new BrandNotFoundException("Car with the model not found");
-    }
-
-}
-public List<CarDTO> getCarsByLocation(String registrationState) throws LocationNotFoundException{
-    List<Car> carexist=carRepository.findByLocation(registrationState);
-    if(carexist.isPresent()) {		
-    	Car car=carexist.get();
-    return CarUtils.convertToCarDto(car);
-    }
-    else {
-    	throw new LocationNotFoundException("Car with the model not found");
-    }
-
-}*/
-public CarDTO deleteCarById(Long id)throws CarNotFoundException {
-	Car carexist=carRepository.findById(id).orElse(null);
-	if(carexist==null)
-		throw new CarNotFoundException("Car with id not present");
-	else
-		carRepository.delete(carexist);
-	return CarUtils.convertToCarDto(carexist);
 	}
 
+	public List<CarDTO> getAllCars() {
+		LOGGER.info("getAllCar() service is initiated");
+		List<Car> carList = carRepository.findAll();
 
+		LOGGER.info("getAllCar() service has executed");
+		return CarUtils.convertToCarDtoList(carList);
+	}
 
-public Car updateCarById(Long id, Car carRequest) throws CarNotFoundException{
-    return carRepository.findById(id).map( car-> {
-    	car.setCarId(carRequest.getCarId());
-    	car.setBrand(carRequest.getBrand());
-    	car.setModel(carRequest.getModel());
-    	car.setVariant(carRequest.getVariant());
-    	car.setRegistrationYear(carRequest.getRegistrationYear());
-    	car.setRegistrationState(carRequest.getRegistrationState());
-    	
-    return carRepository.save(car);
-    }).orElseThrow(()-> new CarNotFoundException("Car with id not present"));
-    
-}
+	public List<CarDTO> getCarsByBrand(String brand) {
+		LOGGER.info("getCarByBrand() service is initiated");
+		List<Car> carexist = carRepository.findByBrand(brand);
+
+		LOGGER.info("getCarByBrand() service has executed");
+		return CarUtils.convertToCarDtoList(carexist);
+
+	}
+
+	public List<CarDTO> getCarsByLocation(String registrationState) {
+		LOGGER.info("getCarByLocation() service is initiated");
+		List<Car> carexist = carRepository.findByLocation(registrationState);
+
+		LOGGER.info("getCarByLocation() service has executed");
+		return CarUtils.convertToCarDtoList(carexist);
+
+	}
+
+	public List<CarDTO> getCarsByModel(String model) {
+		LOGGER.info("getCarByModel() service is initiated");
+		List<Car> carexist = carRepository.findByModel(model);
+
+		LOGGER.info("getCarByModel() service has executed");
+		return CarUtils.convertToCarDtoList(carexist);
+	}
+
+	public CarDTO deleteCarById(Long id) throws CarNotFoundException {
+		LOGGER.info("deleteCar() service is initiated");
+		Car carexist = carRepository.findById(id).orElse(null);
+		if (carexist == null)
+			throw new CarNotFoundException("Car with id not present");
+		else
+			carRepository.delete(carexist);
+
+		LOGGER.info("deleteCar() service has executed");
+		return CarUtils.convertToCarDto(carexist);
+	}
+
+	public Car updateCarById(Long id, Car carRequest) throws CarNotFoundException {
+		LOGGER.info("updateCar() service is initiated");
+		return carRepository.findById(id).map(car -> {
+			car.setCarId(carRequest.getCarId());
+			car.setBrand(carRequest.getBrand());
+			car.setModel(carRequest.getModel());
+			car.setVariant(carRequest.getVariant());
+			car.setRegistrationYear(carRequest.getRegistrationYear());
+			car.setRegistrationState(carRequest.getRegistrationState());
+
+			LOGGER.info("updateCar() service has executed");
+
+			return carRepository.save(car);
+		}).orElseThrow(() -> new CarNotFoundException("Car with id not present"));
+
+	}
 }

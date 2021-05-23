@@ -7,7 +7,5 @@ import com.cg.cars.entities.Customer;
 
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
-	
 
-	
 }

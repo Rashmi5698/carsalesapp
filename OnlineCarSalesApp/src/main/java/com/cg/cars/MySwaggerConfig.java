@@ -14,16 +14,16 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @EnableSwagger2
 public class MySwaggerConfig {
-	
+
 	@Bean
-	public Docket postsApi()
-	{
+	public Docket postsApi() {
 		return new Docket(DocumentationType.SWAGGER_2).apiInfo(metadata()).select().paths(regex("/api/cars.*")).build();
 	}
-	
+
 	@SuppressWarnings("deprecation")
-	private ApiInfo metadata()
-	{
-		return new ApiInfoBuilder().title("OnlineCarSales Application").description("API reference guide for developers").termsOfServiceUrl("www.cg.com").version("1.0").build();
+	private ApiInfo metadata() {
+		return new ApiInfoBuilder().title("OnlineCarSales Application")
+				.description("API reference guide for developers").termsOfServiceUrl("www.cg.com").version("1.0")
+				.build();
 	}
 }

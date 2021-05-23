@@ -6,26 +6,15 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import com.cg.cars.entities.Car;
 
-
-
-
-
 @Repository
 public interface CarRepository extends JpaRepository<Car, Long> {
 	@Query("select b from Car b where b.brand=:brand")
 	List<Car> findByBrand(String brand);
-	
+
 	@Query("select m from Car m where m.model=:model")
 	List<Car> findByModel(String model);
-	
+
 	@Query("select l from Car l where l.registrationState=:registrationState")
 	List<Car> findByLocation(String registrationState);
-	
-	
-	
-	
-	
-	
 
-	
 }
