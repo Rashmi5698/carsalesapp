@@ -11,12 +11,12 @@ public class UserDTO {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public UserDTO(Long userId, String password, String role) {
+	/*public UserDTO(Long userId, String password, String role) {
 		super();
 		this.userId = userId;
 		this.password = password;
 		this.role = role;
-	}
+	}*/
 	public Long getUserId() {
 		return userId;
 	}
@@ -35,9 +35,9 @@ public class UserDTO {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	@Override
+	/*@Override
 	public String toString() {
 		return "User [userId=" + userId + ", password=" + password + ", role=" + role + "]";
-	}
+	}*/
 	
 }

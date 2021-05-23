@@ -3,6 +3,8 @@ package com.cg.cars.repository;
 import org.junit.runner.RunWith;
 import com.cg.cars.entities.Car;
 import com.cg.cars.entities.User;
+import com.cg.cars.exceptions.CarNotFoundException;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,7 +29,7 @@ public class CarRepositoryTest {
 	private TestEntityManager testEntityManager;
 
 	@Test
-	public void testNewCar() throws Exception {
+	public void testNewCar() {
 		Car car = getCar();
 		Car saveInDb = testEntityManager.persist(car);
 		Car getFromInDb = carRepository.findById(saveInDb.getCarId()).get();
@@ -35,7 +37,7 @@ public class CarRepositoryTest {
 	}
 
 	@Test
-	public void testGetCarById() throws Exception {
+	public void testGetCarById() throws CarNotFoundException {
 		Car car = new Car();
 		car.setBrand("Bugatii");
 		car.setModel("New");
@@ -51,7 +53,7 @@ public class CarRepositoryTest {
 	}
 
 	@Test
-	public void testGetAllCars() throws Exception {
+	public void testGetAllCars() {
 		Car car1 = new Car();
 
 		car1.setBrand("Bugatii");
@@ -78,7 +80,7 @@ public class CarRepositoryTest {
 	}
 
 	@Test
-	public void testDeleteCarById() throws Exception {
+	public void testDeleteCarById() throws CarNotFoundException {
 		Car car1 = new Car();
 		car1.setBrand("Bugatii");
 		car1.setModel("New");
@@ -104,7 +106,7 @@ public class CarRepositoryTest {
 	}
 
 	@Test
-	public void testUpdateCarById() {
+	public void testUpdateCarById() throws CarNotFoundException {
 		Car car = new Car();
 		car.setBrand("Bugatii");
 		car.setModel("New");

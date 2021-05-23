@@ -49,7 +49,7 @@ public class Car {
 	public void setRegistrationState(String registrationState) {
 		this.registrationState = registrationState;
 	}
-	public Car(Long carId, String brand, String model, String variant, LocalDate registrationYear,
+	/*public Car(Long carId, String brand, String model, String variant, LocalDate registrationYear,
 			String registrationState) {
 		super();
 		this.carId = carId;
@@ -58,14 +58,14 @@ public class Car {
 		this.variant = variant;
 		this.registrationYear = registrationYear;
 		this.registrationState = registrationState;
-	}
+	}*/
 	public Car() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	@Override
+	/*@Override
 	public String toString() {
 		return "Car [carId=" + carId + ", brand=" + brand + ", model=" + model + ", variant=" + variant
 				+ ", registrationYear=" + registrationYear + ", registrationState=" + registrationState + "]";
-	}
+	}*/
 }

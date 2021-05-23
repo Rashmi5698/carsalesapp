@@ -25,7 +25,7 @@ public class CustomerDTO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public CustomerDTO(Long userId, String name, String email, String contactNo, LocalDate dob, List<Address> address,
+	/*public CustomerDTO(Long userId, String name, String email, String contactNo, LocalDate dob, List<Address> address,
 			List<Appointment> appointment, List<Order> iorder, List<Car> car, User user) {
 		super();
 		this.userId = userId;
@@ -38,7 +38,7 @@ public class CustomerDTO {
 		this.iorder = iorder;
 		this.car = car;
 		this.user = user;
-	}
+	}*/
 
 	public Long getUserId() {
 		return userId;
@@ -120,12 +120,12 @@ public class CustomerDTO {
 		this.user = user;
 	}
 
-	@Override
+	/*@Override
 	public String toString() {
 		return "Customer [userId=" + userId + ", name=" + name + ", email=" + email + ", contactNo=" + contactNo
 				+ ", dob=" + dob + ", address=" + address + ", appointment=" + appointment + ", iorder=" + iorder
 				+ ", car=" + car + ", user=" + user + "]";
-	}
+	}*/
 	
 	
 }

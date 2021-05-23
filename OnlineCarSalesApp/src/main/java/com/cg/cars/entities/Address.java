@@ -29,7 +29,7 @@ public class Address {
 	@ManyToMany(mappedBy="address",cascade = CascadeType.ALL)
 	private List<Customer>customers=new ArrayList<>();
 	
-	public Address(Long addressId,Long doorNo, String street, String area, String city, String state, Long pincode,List<Customer> customers) {
+	/*public Address(Long addressId,Long doorNo, String street, String area, String city, String state, Long pincode,List<Customer> customers) {
 		super();
 		this.addressId=addressId;
 		this.doorNo = doorNo;
@@ -39,7 +39,7 @@ public class Address {
 		this.state = state;
 		this.pincode = pincode;
 		this.customers = customers;
-	}
+	}*/
 	public Address() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -95,9 +95,9 @@ public class Address {
 		this.customers = customers;
 	}
 
-	@Override
+	/*@Override
 	public String toString() {
 		return "Address [addressId="+addressId+",doorNo=" + doorNo + ", street=" + street + ", area=" + area + ", city=" + city + ", state="
 				+ state + ", pincode=" + pincode + ", customers=" + customers + "]";
-	}
+	}*/
 }

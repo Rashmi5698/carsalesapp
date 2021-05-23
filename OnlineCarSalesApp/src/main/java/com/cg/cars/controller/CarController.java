@@ -30,10 +30,10 @@ public class CarController {
 	@PostMapping("/add-car")
 	public ResponseEntity<Object> insertCar(@RequestBody Car car)
 	{
-		CarDTO carDTO = null;
-		ResponseEntity<Object> carResponse = null;
-		carDTO =carService.addCar(car);
-		carResponse = new ResponseEntity<Object>(carDTO, HttpStatus.ACCEPTED);
+		//CarDTO carDTO = null;
+		//ResponseEntity<Object> carResponse = null;
+		 CarDTO carDTO =carService.addCar(car);
+		 ResponseEntity<Object> carResponse = new ResponseEntity<Object>(carDTO, HttpStatus.ACCEPTED);
 		return carResponse;
 	}
 	@GetMapping("/view-car/{id}")

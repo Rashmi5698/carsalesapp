@@ -37,22 +37,22 @@ public class Admin {
 		this.user = user;
 	}
 
-	public Admin(Long adminId, String password, User user) {
+	/*public Admin(Long adminId, String password, User user) {
 		super();
 		this.adminId = adminId;
 		this.password = password;
 		this.user = user;
-	}
+	}*/
 
 	public Admin() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
+	/*@Override
 	public String toString() {
 		return "Admin [adminId=" + adminId + ", password=" + password + ", user=" + user + "]";
-	}
+	}*/
 	
 	
 	

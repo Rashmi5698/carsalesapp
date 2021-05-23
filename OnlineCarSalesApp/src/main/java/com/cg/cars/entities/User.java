@@ -13,12 +13,12 @@ public class User {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public User(Long userId, String password, String role) {
+	/*public User(Long userId, String password, String role) {
 		super();
 		this.userId = userId;
 		this.password = password;
 		this.role = role;
-	}
+	}*/
 	public Long getUserId() {
 		return userId;
 	}
@@ -37,9 +37,9 @@ public class User {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	@Override
+	/*@Override
 	public String toString() {
 		return "User [userId=" + userId + ", password=" + password + ", role=" + role + "]";
-	}
+	}*/
 	
 }

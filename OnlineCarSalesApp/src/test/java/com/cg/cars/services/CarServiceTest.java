@@ -126,21 +126,22 @@ public class CarServiceTest {
 		Mockito.when(carRepo.save(Car1)).thenReturn(Car1);
 		assertEquals(Car1.getCarId(), 4578L);
 	}
-	/* @Test
+	 @Test
 	    public void testFindByModel() throws Exception{
-	       List<Car> car=new ArrayList<>();
-	       Car car=Mokito.mock(Car.class);
-	    
+	      
+		 Car car=new Car();
 	       car.setCarId(4578L);
 			car.setBrand("Bugatii");
 			car.setModel("New");
 			car.setVariant("yes");
 			car.setRegistrationYear(LocalDate.now());
 			car.setRegistrationState("Bangalore");
-	       
+			List<Car> carList=new ArrayList<>();
+			carList.add(car);
+			
 
-	        Mockito.when(carRepo.findByModel("New")).thenReturn(car);
-	        assertThat(carRepo.findByModel("New")).isEqualTo(car);
+	        Mockito.when(carRepo.findByModel("New")).thenReturn(carList);
+	        assertThat(carRepo.findByModel("New")).isEqualTo(carList);
 	    }
 	 @Test
 	    public void testFindByLocation() throws Exception{
@@ -151,10 +152,11 @@ public class CarServiceTest {
 			car.setVariant("yes");
 			car.setRegistrationYear(LocalDate.now());
 			car.setRegistrationState("Bangalore");
-	       
+			List<Car> carList=new ArrayList<>();
+			carList.add(car);
 
-	        Mockito.when(carRepo.findByLocation("New")).thenReturn(car);
-	        assertThat(carRepo.findByLocation("New")).isEqualTo(car);
+	        Mockito.when(carRepo.findByLocation("Bangalore")).thenReturn(carList);
+	        assertThat(carRepo.findByLocation("Bangalore")).isEqualTo(carList);
 	    }
 	 @Test
 	    public void testFindByBrand() throws Exception{
@@ -165,16 +167,12 @@ public class CarServiceTest {
 			car.setVariant("yes");
 			car.setRegistrationYear(LocalDate.now());
 			car.setRegistrationState("Bangalore");
-	       
+			List<Car> carList=new ArrayList<>();
+			carList.add(car);
 
-	        Mockito.when(carRepo.findByBrand("New")).thenReturn(car);
-	        assertThat(carRepo.findByBrand("New")).isEqualTo(car);
+	        Mockito.when(carRepo.findByBrand("Bugatti")).thenReturn(carList);
+	        assertThat(carRepo.findByBrand("Bugatti")).isEqualTo(carList);
 	    }
-	
-
-	       
-	 
-	*/
 	
 
 }

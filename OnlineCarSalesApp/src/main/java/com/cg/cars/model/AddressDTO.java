@@ -21,7 +21,7 @@ public class AddressDTO {
 	public void setCustomers(List<Customer> customers) {
 		this.customers = customers;
 	}
-	public AddressDTO(Long addressId,Long doorNo, String street, String area, String city, String state, Long pincode,List<Customer> customers) {
+	/*public AddressDTO(Long addressId,Long doorNo, String street, String area, String city, String state, Long pincode,List<Customer> customers) {
 		super();
 		this.addressId=addressId;
 		this.doorNo = doorNo;
@@ -31,7 +31,7 @@ public class AddressDTO {
 		this.state = state;
 		this.pincode = pincode;
 		this.customers=customers;
-	}
+	}*/
 	public AddressDTO() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -79,9 +79,9 @@ public class AddressDTO {
 	public void setAddressId(Long addressId) {
 		this.addressId = addressId;
 	}
-	@Override
+	/*@Override
 	public String toString() {
 		return "AddressDTO [addressId="+addressId+",doorNo=" + doorNo + ", street=" + street + ", area=" + area + ", city=" + city + ", state="
 				+ state + ", pincode=" + pincode + "Customer="+customers+"]";
-	}	
+	}	*/
 }

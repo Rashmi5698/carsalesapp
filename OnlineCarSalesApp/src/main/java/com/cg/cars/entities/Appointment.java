@@ -28,7 +28,7 @@ public class Appointment {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Appointment(Long appointmentId, String location, String inspectionType, LocalDate preferredDate,
+	/*public Appointment(Long appointmentId, String location, String inspectionType, LocalDate preferredDate,
 			LocalTime preferredTime, Payment payment) {
 		super();
 		this.appointmentId = appointmentId;
@@ -38,7 +38,7 @@ public class Appointment {
 		this.preferredTime = preferredTime;
 		this.payment = payment;
 	
-	}
+	}*/
 	public Long getAppointmentId() {
 		return appointmentId;
 	}
@@ -78,13 +78,13 @@ public class Appointment {
 	}
 	
 	
-	@Override
+	/*@Override
 	public String toString() {
 		return "Appointment [appointmentId=" + appointmentId + ", location=" + location + ", inspectionType="
 				+ inspectionType + ", preferredDate=" + preferredDate + ", preferredTime=" + preferredTime+",payment=" 
 				+ payment +"]";
 						
-	}
+	}*/
 	
 
 }

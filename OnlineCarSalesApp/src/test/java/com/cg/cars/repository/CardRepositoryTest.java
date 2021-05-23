@@ -3,6 +3,7 @@ package com.cg.cars.repository;
 import org.junit.runner.RunWith;
 import com.cg.cars.entities.Card;
 import com.cg.cars.entities.User;
+import com.cg.cars.exceptions.CardNotFoundException;
 import com.cg.cars.entities.Card;
 import org.junit.Assert;
 import org.junit.Test;
@@ -28,7 +29,7 @@ public class CardRepositoryTest {
 	private TestEntityManager testEntityManager;
 
 	@Test
-	public void testNewCard() throws Exception {
+	public void testNewCard() {
 		Card card = getCard();
 		Card saveInDb = testEntityManager.persist(card);
 		Card getFromInDb = CardRepository.findById(saveInDb.getCardNumber()).get();
@@ -36,7 +37,7 @@ public class CardRepositoryTest {
 	}
 
 	@Test
-	public void testGetCardById() throws Exception {
+	public void testGetCardById() throws CardNotFoundException {
 		Card card = new Card();
 
 		card.setCardName("hdfc");
@@ -50,7 +51,7 @@ public class CardRepositoryTest {
 	}
 
 	@Test
-	public void testGetAllCards() throws Exception {
+	public void testGetAllCards(){
 		Card card1 = new Card();
 
 		card1.setCardName("canara");
@@ -73,7 +74,7 @@ public class CardRepositoryTest {
 	}
 
 	@Test
-	public void testDeleteCardById() throws Exception {
+	public void testDeleteCardById() throws CardNotFoundException {
 		Card card1 = new Card();
 
 		card1.setCardName("icici");

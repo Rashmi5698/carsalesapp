@@ -16,14 +16,14 @@ public class UserUtils {
 		return dtolist;
 }
 	
-	public static User convertToUser(UserDTO dto) {
+	/*public static User convertToUser(UserDTO dto) {
 		User iuser= new User();
 		
 		iuser.setPassword(dto.getPassword());
 		iuser.setRole(dto.getRole());
 		iuser.setUserId(dto.getUserId());
 	return iuser;	
-	}
+	}*/
 	
 	public static UserDTO convertToUserDto(User iuser ) {
 		UserDTO dto=new UserDTO();

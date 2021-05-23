@@ -158,6 +158,69 @@ public class CarControllerTest {
 		Assert.assertNotNull(jsonOutput);
 		
 	}
+	@Test
+	public void testFindCarByModel() throws Exception
+	{
+		String URI="/api/cars/view-car-byModel/{model:.+}";
+		Car car = new Car();
+		car.setCarId(4545L);
+		car.setBrand("Bugatii");
+		car.setModel("New");
+		car.setVariant("yes");
+		car.setRegistrationYear(LocalDate.now());
+		car.setRegistrationState("Bangalore");
+		String jsonInput=this.converttoJson(car);
+		
+		//Mockito.when(addressController.updateAddress(Mockito.any(),Mockito.anyString())).thenReturn(address);
+		MvcResult mvcResult=this.mockMvc.perform(MockMvcRequestBuilders.put(URI,"New").accept(MediaType.APPLICATION_JSON).content(jsonInput).contentType(MediaType.APPLICATION_JSON)).andReturn();
+		MockHttpServletResponse mockHttpServletResponse=mvcResult.getResponse();
+		String jsonOutput=mockHttpServletResponse.getContentAsString();
+		//assertThat(jsonInput).isEqualTo(jsonOutput);
+		Assert.assertNotNull(jsonOutput);
+		
+	}
+	@Test
+	public void testFindCarByBrand() throws Exception
+	{
+		String URI="/api/cars/view-car-byBrand/{brand:.+}";
+		Car car = new Car();
+		car.setCarId(4545L);
+		car.setBrand("Bugatii");
+		car.setModel("New");
+		car.setVariant("yes");
+		car.setRegistrationYear(LocalDate.now());
+		car.setRegistrationState("Bangalore");
+		String jsonInput=this.converttoJson(car);
+		
+		//Mockito.when(addressController.updateAddress(Mockito.any(),Mockito.anyString())).thenReturn(address);
+		MvcResult mvcResult=this.mockMvc.perform(MockMvcRequestBuilders.put(URI,"Bugatii").accept(MediaType.APPLICATION_JSON).content(jsonInput).contentType(MediaType.APPLICATION_JSON)).andReturn();
+		MockHttpServletResponse mockHttpServletResponse=mvcResult.getResponse();
+		String jsonOutput=mockHttpServletResponse.getContentAsString();
+		//assertThat(jsonInput).isEqualTo(jsonOutput);
+		Assert.assertNotNull(jsonOutput);
+		
+	}
+	@Test
+	public void testFindCarByLocation() throws Exception
+	{
+		String URI="/api/cars/view-car-bylocation/{location:.+}";
+		Car car = new Car();
+		car.setCarId(4545L);
+		car.setBrand("Bugatii");
+		car.setModel("New");
+		car.setVariant("yes");
+		car.setRegistrationYear(LocalDate.now());
+		car.setRegistrationState("Bangalore");
+		String jsonInput=this.converttoJson(car);
+		
+		//Mockito.when(addressController.updateAddress(Mockito.any(),Mockito.anyString())).thenReturn(address);
+		MvcResult mvcResult=this.mockMvc.perform(MockMvcRequestBuilders.put(URI,"Bangalore").accept(MediaType.APPLICATION_JSON).content(jsonInput).contentType(MediaType.APPLICATION_JSON)).andReturn();
+		MockHttpServletResponse mockHttpServletResponse=mvcResult.getResponse();
+		String jsonOutput=mockHttpServletResponse.getContentAsString();
+		//assertThat(jsonInput).isEqualTo(jsonOutput);
+		Assert.assertNotNull(jsonOutput);
+		
+	}
 	
 	
 	private String converttoJson(Object car) throws JsonProcessingException

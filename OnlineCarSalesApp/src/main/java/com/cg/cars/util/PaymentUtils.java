@@ -20,7 +20,7 @@ public class PaymentUtils {
 		return dtolist;
 }
 	
-	public static Payment convertToPayment(PaymentDTO dto) {
+	/*public static Payment convertToPayment(PaymentDTO dto) {
 		Payment payment= new Payment();
 	
 		payment.setPaymentId(dto.getPaymentId());
@@ -28,7 +28,7 @@ public class PaymentUtils {
 		payment.setStatus(dto.getStatus());
 		payment.setCard(dto.getCard());
 	return payment;	
-	}
+	}*/
 	
 	public static PaymentDTO convertToPaymentDto(Payment payment ) {
 		PaymentDTO dto=new PaymentDTO();

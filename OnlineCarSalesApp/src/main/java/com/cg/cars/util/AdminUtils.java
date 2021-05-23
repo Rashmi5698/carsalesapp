@@ -16,13 +16,13 @@ public class AdminUtils {
 		return dtolist;
 }
 	
-	public static Admin convertToAdmin(AdminDTO dto) {
+	/*public static Admin convertToAdmin(AdminDTO dto) {
 		Admin iAdmin= new Admin();
 		iAdmin.setAdminId(dto.getAdminId());
 		iAdmin.setPassword(dto.getPassword());
 		iAdmin.setUser(dto.getUser());
 	return iAdmin;	
-	}
+	}*/
 	
 	public static AdminDTO convertToAdminDto(Admin iAdmin ) {
 		AdminDTO dto=new AdminDTO();

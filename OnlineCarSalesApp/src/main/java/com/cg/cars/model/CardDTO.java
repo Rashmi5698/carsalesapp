@@ -11,14 +11,14 @@ public class CardDTO {
     private LocalDate cardExpiry;
     private Integer cvv;
  
-	public CardDTO(long cardNumber,String cardName, LocalDate cardExpiry, Integer cvv) {
+	/*public CardDTO(long cardNumber,String cardName, LocalDate cardExpiry, Integer cvv) {
 		super();
 		this.cardNumber = cardNumber;
 		this.cardName = cardName;
 		this.cardExpiry = cardExpiry;
 		this.cvv = cvv;
 		
-	}
+	}*/
 	public CardDTO() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -49,10 +49,10 @@ public class CardDTO {
 	}
 	
 
-	@Override
+	/*@Override
 	public String toString() {
 		return "Card [cardNumber=+" + cardNumber+", cardName=" + cardName + ", cardExpiry=" + cardExpiry + ", cvv="
 				+ cvv + "]";
-	}
+	}*/
     
 }

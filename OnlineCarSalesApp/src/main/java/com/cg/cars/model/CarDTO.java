@@ -18,7 +18,7 @@ public class CarDTO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public CarDTO(long carId, String brand, String model, String variant, LocalDate registrationYear,
+	/*public CarDTO(long carId, String brand, String model, String variant, LocalDate registrationYear,
 			String registrationState) {
 		super();
 		this.carId = carId;
@@ -27,7 +27,7 @@ public class CarDTO {
 		this.variant = variant;
 		this.registrationYear = registrationYear;
 		this.registrationState = registrationState;
-	}
+	}*/
 
 	public long getCarId() {
 		return carId;
@@ -79,11 +79,11 @@ public class CarDTO {
 	
 
 
-	@Override
+	/*@Override
 	public String toString() {
 		return "CarDTO [carId=" + carId + ", brand=" + brand + ", model=" + model + ", variant=" + variant
 				+ ", registrationYear=" + registrationYear + ", registrationState=" + registrationState +"]";
-	}	
+	}	*/
 	
 	
 	

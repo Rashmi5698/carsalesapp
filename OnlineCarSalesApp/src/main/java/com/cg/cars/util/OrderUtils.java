@@ -21,7 +21,7 @@ public class OrderUtils {
 		return dtolist;
 }
 	
-	public static Order convertToOrder(OrderDTO dto) {
+	/*public static Order convertToOrder(OrderDTO dto) {
 		Order order= new Order();
 	
 		order.setOrderId(dto.getOrderId());
@@ -30,7 +30,7 @@ public class OrderUtils {
 		order.setPayment(dto.getPayment());
 		
 	return order;	
-	}
+	}*/
 	
 	public static OrderDTO convertToOrderDto(Order order ) {
 		OrderDTO dto=new OrderDTO();

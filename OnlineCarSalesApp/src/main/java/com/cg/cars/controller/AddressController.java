@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.cg.cars.services.AddressService;
+
 import com.cg.cars.entities.Address;
 import com.cg.cars.exceptions.AddressNotFoundException;
 import com.cg.cars.model.AddressDTO;
@@ -23,6 +24,7 @@ import com.cg.cars.model.AddressDTO;
 @RestController
 @RequestMapping("/api/cars")
 public class AddressController {
+	//static final Logger LOGGER = LoggerFactory.getLogger(AdminController.class);
 	
 	@Autowired
     private AddressService addressService;

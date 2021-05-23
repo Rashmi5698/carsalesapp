@@ -16,14 +16,14 @@ public class CardUtils {
 		return dtolist;
 }
 	
-	public static Card convertToCard(CardDTO dto) {
+	/*public static Card convertToCard(CardDTO dto) {
 		Card card= new Card();
 		card.setCardNumber(dto.getCardNumber());
 		card.setCardName(dto.getCardName());
 		card.setCardExpiry(dto.getCardExpiry());
 		card.setCvv(dto.getCvv());
 	return card;	
-	}
+	}*/
 	
 	public static CardDTO convertToCardDto(Card card ) {
 		CardDTO dto=new CardDTO();

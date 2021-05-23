@@ -25,13 +25,13 @@ public class Payment {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Payment(Long paymentId, String type, String status, List<Card> card) {
+	/*public Payment(Long paymentId, String type, String status, List<Card> card) {
 		super();
 		this.paymentId = paymentId;
 		this.type = type;
 		this.status = status;
 		this.card = card;
-	}
+	}*/
 	public Long getPaymentId() {
 		return paymentId;
 	}
@@ -56,8 +56,8 @@ public class Payment {
 	public void setCard(List<Card> card) {
 		this.card = card;
 	}
-	@Override
+	/*@Override
 	public String toString() {
 		return "Payment [paymentId=" + paymentId + ", type=" + type + ", status=" + status + ", card=" + card + "]";
-	}	
+	}	*/
 }

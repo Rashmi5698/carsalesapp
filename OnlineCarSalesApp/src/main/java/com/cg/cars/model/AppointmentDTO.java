@@ -21,7 +21,7 @@ public class AppointmentDTO {
 
 
 
-	public AppointmentDTO(Long appointmentId, String location, String inspectionType, LocalDate preferredDate,
+	/*public AppointmentDTO(Long appointmentId, String location, String inspectionType, LocalDate preferredDate,
 			LocalTime preferredTime,Payment payment) {
 		super();
 		this.appointmentId = appointmentId;
@@ -32,7 +32,7 @@ public class AppointmentDTO {
 	
 		this.payment = payment;
 	
-	}
+	}*/
 
 
 
@@ -90,11 +90,11 @@ public class AppointmentDTO {
 
 
 
-	@Override
-	public String toString() {
+	//@Override
+	/*public String toString() {
 		return "AppointmentDTO [appointmentId=" + appointmentId + ", location=" + location + ", inspectionType="
 				+ inspectionType + ", preferredDate=" + preferredDate + ", preferredTime=" + preferredTime
 				+ ", payment=" + payment + "]";
-	}
+	}*/
 
 }

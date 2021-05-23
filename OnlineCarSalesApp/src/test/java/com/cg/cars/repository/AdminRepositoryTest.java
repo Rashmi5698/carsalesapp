@@ -3,6 +3,8 @@ package com.cg.cars.repository;
 import org.junit.runner.RunWith;
 import com.cg.cars.entities.Admin;
 import com.cg.cars.entities.User;
+import com.cg.cars.exceptions.AdminNotFoundException;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,7 +27,7 @@ public class AdminRepositoryTest {
 	private TestEntityManager testEntityManager;
 
 	@Test
-	public void testNewAdmin() throws Exception {
+	public void testNewAdmin() {
 		Admin admin = getAdmin();
 		Admin saveInDb = testEntityManager.persist(admin);
 		Admin getFromInDb = adminRepository.findById(saveInDb.getAdminId()).get();
@@ -33,7 +35,7 @@ public class AdminRepositoryTest {
 	}
 
 	@Test
-	public void testGetAdminById() throws Exception {
+	public void testGetAdminById() throws AdminNotFoundException {
 		Admin admin = new Admin();
 
 		admin.setPassword("1ve16cs077");

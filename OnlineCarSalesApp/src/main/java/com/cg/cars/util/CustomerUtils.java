@@ -19,7 +19,7 @@ public class CustomerUtils {
 }
 	
 	
-	public static Customer convertToCustomer(CustomerDTO dto) {
+	/*public static Customer convertToCustomer(CustomerDTO dto) {
 		Customer customer= new Customer();
 		customer.setUserId(dto.getUserId());
 		customer.setName(dto.getName());
@@ -34,7 +34,7 @@ public class CustomerUtils {
 		
 		
 	return customer;	
-	}
+	}*/
 	
 	public static CustomerDTO convertToCustomerDto(Customer customer ) {
 		CustomerDTO dto=new CustomerDTO();

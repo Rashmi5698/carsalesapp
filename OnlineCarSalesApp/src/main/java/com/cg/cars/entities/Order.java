@@ -21,14 +21,14 @@ public class Order {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Order(Long orderId, double amount, LocalDate billingDate,Payment payment) {
+	/*public Order(Long orderId, double amount, LocalDate billingDate,Payment payment) {
 		super();
 		this.orderId = orderId;
 		this.amount = amount;
 		this.billingDate = billingDate;
 		this.payment=payment;
 	
-	}
+	}*/
 	public Long getOrderId() {
 		return orderId;
 	}
@@ -56,10 +56,10 @@ public class Order {
 	}
 	
 	
-	@Override
+	/*@Override
 	public String toString() {
 		return "Order [orderId=" + orderId + ", amount=" + amount + ", billingDate=" + billingDate + ",Payment="+payment+"]";
-	}
+	}*/
 	
 	
 

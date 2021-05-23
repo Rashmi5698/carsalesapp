@@ -18,7 +18,7 @@ public class Card {
     private Integer cvv;
    
     
-	public Card( Long cardNumber,String cardName, LocalDate cardExpiry, Integer cvv) {
+	/*public Card( Long cardNumber,String cardName, LocalDate cardExpiry, Integer cvv) {
 		super();
 		this.cardNumber = cardNumber;
 		this.cardName = cardName;
@@ -26,7 +26,7 @@ public class Card {
 		this.cvv = cvv;
 		
 		
-	}
+	}*/
 	public Card() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -57,9 +57,9 @@ public class Card {
 		this.cvv = cvv;
 	}
 
-	@Override
+	/*@Override
 	public String toString() {
 		return "Card [ cardNumber=+" + cardNumber + "cardName=" + cardName + ", cardExpiry=" + cardExpiry + ", cvv="
 				+ cvv + "]";
-	}
+	}*/
 }

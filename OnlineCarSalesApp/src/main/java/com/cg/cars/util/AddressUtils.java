@@ -16,7 +16,7 @@ public class AddressUtils {
 		return dtolist;
 }
 	
-	public static Address convertToAddress(AddressDTO dto) {
+	/*public static Address convertToAddress(AddressDTO dto) {
 		Address address= new Address();
 		address.setAddressId(dto.getAddressId());
 		address.setDoorNo(dto.getDoorNo());
@@ -27,7 +27,7 @@ public class AddressUtils {
 		address.setPincode(dto.getPincode());
 		address.setCustomers(dto.getCustomers());
 	return address;	
-	}
+	}*/
 	
 	public static AddressDTO convertToAddressDto(Address address ) {
 		AddressDTO dto=new AddressDTO();

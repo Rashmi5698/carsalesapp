@@ -3,6 +3,8 @@ package com.cg.cars.repository;
 import org.junit.runner.RunWith;
 import com.cg.cars.entities.Address;
 import com.cg.cars.entities.User;
+import com.cg.cars.exceptions.AddressNotFoundException;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,7 +27,7 @@ public class AddressRepositoryTest {
 	private TestEntityManager testEntityManager;
 
 	@Test
-	public void testNewAdddress() throws Exception {
+	public void testNewAdddress()  {
 		Address address = getAddress();
 		Address saveInDb = testEntityManager.persist(address);
 		Address getFromInDb = addressRepository.findById(saveInDb.getAddressId()).get();
@@ -33,7 +35,7 @@ public class AddressRepositoryTest {
 	}
 
 	@Test
-	public void testGetAddressById() throws Exception {
+	public void testGetAddressById() throws AddressNotFoundException {
 		Address address = new Address();
 		address.setDoorNo(45L);
 		address.setStreet("Church Street");
@@ -50,7 +52,7 @@ public class AddressRepositoryTest {
 	}
 
 	@Test
-	public void testGetAllAddress() throws Exception {
+	public void testGetAllAddress() {
 		Address address1 = new Address();
 		address1.setDoorNo(46L);
 		address1.setStreet("Frazer Street");
@@ -78,7 +80,7 @@ public class AddressRepositoryTest {
 	}
 
 	@Test
-	public void testDeleteAddressById() throws Exception {
+	public void testDeleteAddressById() throws AddressNotFoundException {
 		Address address1 = new Address();
 		address1.setDoorNo(41L);
 		address1.setStreet("Church Street");
@@ -107,7 +109,7 @@ public class AddressRepositoryTest {
 	}
 
 	@Test
-	public void testUpdateAddressById() {
+	public void testUpdateAddressById() throws AddressNotFoundException {
 		Address address2 = new Address();
 		address2.setDoorNo(45L);
 		address2.setStreet("Church Street");

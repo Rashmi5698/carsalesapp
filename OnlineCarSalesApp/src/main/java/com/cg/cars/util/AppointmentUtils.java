@@ -16,7 +16,7 @@ public class AppointmentUtils {
 		return dtolist;
 }
 	
-	public static Appointment convertToAppointment(AppointmentDTO dto) {
+	/*public static Appointment convertToAppointment(AppointmentDTO dto) {
 		Appointment appointment= new Appointment();
 		appointment.setAppointmentId(dto.getAppointmentId());
 		appointment.setLocation(dto.getLocation());
@@ -26,7 +26,7 @@ public class AppointmentUtils {
 		appointment.setPayment(dto.getPayment());
 		
 	return appointment;	
-	}
+	}*/
 	
 	public static AppointmentDTO convertToAppointmentDto(Appointment appointment ) {
 		AppointmentDTO dto=new AppointmentDTO();
