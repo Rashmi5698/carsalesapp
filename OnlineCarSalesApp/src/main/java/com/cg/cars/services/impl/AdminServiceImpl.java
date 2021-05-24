@@ -16,7 +16,7 @@ import com.cg.cars.util.AdminUtils;
 @Service
 public class AdminServiceImpl implements AdminService {
 	static final Logger LOGGER = LoggerFactory.getLogger(AdminServiceImpl.class);
-
+	String adminError="Admin with Id not present";
 	@Autowired
 	private AdminRepository adminRepository;
 	/*
@@ -26,7 +26,7 @@ public class AdminServiceImpl implements AdminService {
 
 	public AdminDTO addAdmin(Admin iAdmin) {
 		LOGGER.info("addAdmin() service is initiated");
-		Admin adminEntity = adminRepository.save(iAdmin);
+		Admin adminEntity = adminRepository.saveAndFlush(iAdmin);
 		LOGGER.info("addAdmin() service has executed");
 		return AdminUtils.convertToAdminDto(adminEntity);
 	}
@@ -43,14 +43,14 @@ public class AdminServiceImpl implements AdminService {
 			LOGGER.info("viewAdmin() service has executed");
 			return AdminUtils.convertToAdminDto(admin);
 		} else {
-			throw new AdminNotFoundException("Admin with id not present");
+			throw new AdminNotFoundException(adminError);
 		}
 
 	}
 
 	/*
-	 * Description : This method Shows all existing Admins Object Return Value:
-	 * List<AdminDTO>
+	 * Description : This method Shows all existing Admins Object 
+	 * Return Value: List<AdminDTO>
 	 */
 
 	@Override
@@ -62,8 +62,9 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	/*
-	 * Description : This method Updates existing Admin Input Param : AdminDTO
-	 * Object Return Value : Admin Object Exception : AdminNotFoundException
+	 * Description : This method Updates existing Admin 
+	 * Input Param : AdminDTO Object 
+	 * Return Value : Admin Object Exception : AdminNotFoundException
 	 */
 
 	public Admin updateAdminById(Long id, Admin adminRequest) throws AdminNotFoundException {
@@ -73,19 +74,21 @@ public class AdminServiceImpl implements AdminService {
 			admin.setUser(adminRequest.getUser());
 			LOGGER.info("updateAdmin() service has executed");
 			return adminRepository.save(admin);
-		}).orElseThrow(() -> new AdminNotFoundException("Admin with id not present"));
+		}).orElseThrow(() -> new AdminNotFoundException(adminError));
 
 	}
 
 	/*
-	 * Description : This method Deletes existing Admin Input Param : Long Return
-	 * Value : AdminDTO Object Exception : AdminNotFoundException
+	 * Description : This method Deletes existing Admin 
+	 * Input Param : Long Return
+	 * Value : AdminDTO Object 
+	 * Exception : AdminNotFoundException
 	 */
 	public AdminDTO deleteAdminById(Long id) throws AdminNotFoundException {
 		LOGGER.info("deleteAdmin() service is initiated");
 		Admin adminexist = adminRepository.findById(id).orElse(null);
 		if (adminexist == null)
-			throw new AdminNotFoundException("Admin with id not present");
+			throw new AdminNotFoundException(adminError);
 		else
 			adminRepository.delete(adminexist);
 		LOGGER.info("deleteAdmin() service has executed");

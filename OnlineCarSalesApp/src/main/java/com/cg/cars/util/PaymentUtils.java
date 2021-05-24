@@ -12,7 +12,7 @@ public class PaymentUtils {
 	}
 
 	public static List<PaymentDTO> convertToPaymentDtoList(List<Payment> list) {
-		List<PaymentDTO> dtolist = new ArrayList<PaymentDTO>();
+		List<PaymentDTO> dtolist = new ArrayList<>();
 		for (Payment payment : list)
 			dtolist.add(convertToPaymentDto(payment));
 		return dtolist;

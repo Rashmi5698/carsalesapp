@@ -20,7 +20,7 @@ public class Card {
 
 	public Card() {
 		super();
-		// TODO Auto-generated constructor stub
+
 	}
 
 	public Long getCardNumber() {

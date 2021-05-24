@@ -66,7 +66,6 @@ public class Car {
 
 	public Car() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 }

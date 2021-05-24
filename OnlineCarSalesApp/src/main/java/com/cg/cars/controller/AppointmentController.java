@@ -42,7 +42,7 @@ public class AppointmentController {
 		AppointmentDTO appointmentDTO = null;
 		ResponseEntity<Object> appointmentResponse = null;
 		appointmentDTO = appointmentService.addAppointment(appointment);
-		appointmentResponse = new ResponseEntity<Object>(appointmentDTO, HttpStatus.ACCEPTED);
+		appointmentResponse = new ResponseEntity<>(appointmentDTO, HttpStatus.ACCEPTED);
 		LOGGER.info("addAppointment() has executed");
 		return appointmentResponse;
 	}
@@ -56,12 +56,12 @@ public class AppointmentController {
 	 * @RequestBody: It used to bind the HTTP request/response body with a domain object in method parameter or return type.
 	 ************************************************************************************/
 	@GetMapping("/view-appointment/{id}")
-	public ResponseEntity getAppointment(@PathVariable Long id) throws AppointmentNotFoundException {
+	public ResponseEntity<Object> getAppointment(@PathVariable Long id) throws AppointmentNotFoundException {
 		LOGGER.info("view-Appointment URL is opened");
 		LOGGER.info("viewAppointment() is initiated");
 		AppointmentDTO appointmentDTO = appointmentService.getAppointmentById(id);
 		LOGGER.info("viewAppointment() has executed");
-		return new ResponseEntity(appointmentDTO, HttpStatus.OK);
+		return new ResponseEntity<>(appointmentDTO, HttpStatus.OK);
 	}
 
 	/************************************************************************************
@@ -94,7 +94,7 @@ public class AppointmentController {
 		LOGGER.info("deleteAppointment() is initiated");
 		appointmentService.deleteAppointmentById(id);
 		LOGGER.info("deleteAppointment() has executed");
-		return new ResponseEntity("deleted successfully:", HttpStatus.ACCEPTED);
+		return new ResponseEntity<>("deleted successfully:", HttpStatus.ACCEPTED);
 
 	}
 
@@ -108,13 +108,13 @@ public class AppointmentController {
 	 ************************************************************************************/
 	@PutMapping("/update-appointment/{id}")
 
-	public ResponseEntity updateAppointment(@PathVariable Long id, @RequestBody Appointment appointmentRequest)
+	public ResponseEntity<Object> updateAppointment(@PathVariable Long id, @RequestBody Appointment appointmentRequest)
 			throws AppointmentNotFoundException {
 		LOGGER.info("update-Appointment URL is opened");
 		LOGGER.info("updateAppointment() is initiated");
 		appointmentService.updateAppointmentById(id, appointmentRequest);
 		LOGGER.info("updateAppointment() has executed");
-		return new ResponseEntity("Updated ", HttpStatus.OK);
+		return new ResponseEntity<>("Updated ", HttpStatus.OK);
 	}
 
 }

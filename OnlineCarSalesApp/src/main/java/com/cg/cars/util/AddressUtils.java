@@ -10,7 +10,7 @@ public class AddressUtils {
 	}
 
 	public static List<AddressDTO> convertToAddressDtoList(List<Address> list) {
-		List<AddressDTO> dtolist = new ArrayList<AddressDTO>();
+		List<AddressDTO> dtolist = new ArrayList<>();
 		for (Address address : list)
 			dtolist.add(convertToAddressDto(address));
 		return dtolist;

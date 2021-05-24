@@ -15,7 +15,7 @@ public interface CarService {
 
 	public CarDTO deleteCarById(Long id) throws CarNotFoundException;
 
-	public Car updateCarById(Long id, Car CarRequest) throws CarNotFoundException;
+	public Car updateCarById(Long id, Car carRequest) throws CarNotFoundException;
 
 	public List<CarDTO> getCarsByLocation(String registrationState);
 	

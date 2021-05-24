@@ -13,7 +13,7 @@ public class CustomerUtils {
 
 	// converting into screen class
 	public static List<CustomerDTO> convertToCustomerDtoList(List<Customer> list) {
-		List<CustomerDTO> dtolist = new ArrayList<CustomerDTO>();
+		List<CustomerDTO> dtolist = new ArrayList<>();
 		for (Customer customer : list)
 			dtolist.add(convertToCustomerDto(customer));
 		return dtolist;

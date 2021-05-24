@@ -15,6 +15,6 @@ public interface CardService {
 
 	public CardDTO deleteCardById(Long id) throws CardNotFoundException;
 
-	public Card updateCardById(Long id, Card CardRequest) throws CardNotFoundException;
+	public Card updateCardById(Long id, Card cardRequest) throws CardNotFoundException;
 
 }

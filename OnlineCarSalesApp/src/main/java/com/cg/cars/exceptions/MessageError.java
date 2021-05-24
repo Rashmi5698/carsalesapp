@@ -1,6 +1,6 @@
 package com.cg.cars.exceptions;
 
-public class ErrorMessage {
+public class MessageError {
 	
 	private String errorMessage;
 

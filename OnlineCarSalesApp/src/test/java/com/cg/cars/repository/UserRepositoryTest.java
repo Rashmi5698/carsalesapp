@@ -88,7 +88,7 @@ public class UserRepositoryTest {
 		testEntityManager.remove(user);
 
 		List<User> users = (List<User>) UserRepository.findAll();
-		Assert.assertEquals(users.size(), 1);
+		Assert.assertEquals(1,users.size());
 	}
 
 	@Test

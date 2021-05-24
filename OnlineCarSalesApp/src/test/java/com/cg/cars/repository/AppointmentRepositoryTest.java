@@ -99,7 +99,7 @@ public class AppointmentRepositoryTest {
 		testEntityManager.remove(appointment);
 
 		List<Appointment> appointments = (List<Appointment>) appointmentRepository.findAll();
-		Assert.assertEquals(appointments.size(), 1);
+		Assert.assertEquals(1,appointments.size());
 
 	}
 

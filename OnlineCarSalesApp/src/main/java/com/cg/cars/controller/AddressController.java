@@ -43,7 +43,7 @@ public class AddressController {
 		AddressDTO addressDTO = null;
 		ResponseEntity<Object> addressResponse = null;
 		addressDTO = addressService.addAddress(address);
-		addressResponse = new ResponseEntity<Object>(addressDTO, HttpStatus.ACCEPTED);
+		addressResponse = new ResponseEntity<>(addressDTO, HttpStatus.ACCEPTED);
 		LOGGER.info("addAddress() has executed");
 		return addressResponse;
 	}
@@ -58,12 +58,12 @@ public class AddressController {
 	 ************************************************************************************/
 
 	@GetMapping("/view-Address/{id}")
-	public ResponseEntity getAddressById(@PathVariable Long id) throws AddressNotFoundException {
+	public ResponseEntity<Object> getAddressById(@PathVariable Long id) throws AddressNotFoundException {
 		LOGGER.info("view-Address URL is opened");
 		LOGGER.info("getAddressById() is initiated");
 		AddressDTO addressDTO = addressService.getAddressById(id);
 		LOGGER.info("getAddressById() has executed");
-		return new ResponseEntity(addressDTO, HttpStatus.OK);
+		return new ResponseEntity<>(addressDTO, HttpStatus.OK);
 	}
 
 	/************************************************************************************
@@ -95,7 +95,7 @@ public class AddressController {
 		LOGGER.info("deleteAddress() is initiated");
 		addressService.deleteAddressById(id);
 		LOGGER.info("deleteAddress() has executed");
-		return new ResponseEntity("deleted successfully:", HttpStatus.ACCEPTED);
+		return new ResponseEntity<>("deleted successfully:", HttpStatus.ACCEPTED);
 	}
 
 	/************************************************************************************
@@ -108,13 +108,13 @@ public class AddressController {
 	 ************************************************************************************/
 
 	@PutMapping("/update-Address/{id}")
-	public ResponseEntity updateAddress(@PathVariable Long id, @RequestBody Address addressRequest)
+	public ResponseEntity<Object> updateAddress(@PathVariable Long id, @RequestBody Address addressRequest)
 			throws AddressNotFoundException {
 		LOGGER.info("update-Address URL is opened");
 		LOGGER.info("updateAddress() is initiated");
 		addressService.updateAddressById(id, addressRequest);
 		LOGGER.info("updateAddress() has executed");
-		return new ResponseEntity("Updated ", HttpStatus.OK);
+		return new ResponseEntity<>("Updated ", HttpStatus.OK);
 	}
 
 }

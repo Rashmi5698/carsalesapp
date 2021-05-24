@@ -52,7 +52,7 @@ public class CarServiceTest {
 
 		Mockito.when(carRepo.save(Car)).thenReturn(Car);
 		CarDTO CarDTO = CarUtils.convertToCarDto(Car);
-		assertEquals(CarDTO.getCarId(), 4545L);
+		assertEquals(4545L,CarDTO.getCarId());
 	}
 
 	@Test
@@ -66,7 +66,7 @@ public class CarServiceTest {
 		Car.setRegistrationState("Bangalore");
 
 		Mockito.when(carRepo.save(Car)).thenReturn(Car);
-		assertEquals(Car.getCarId(), 4578L);
+		assertEquals(4578L,Car.getCarId());
 	}
 
 	@Test
@@ -93,7 +93,7 @@ public class CarServiceTest {
 //		System.out.println("Service list"+productService.showAllProducts());
 		List<CarDTO> dto = CarUtils.convertToCarDtoList(CarList);
 //		System.out.println("after converting:"+dto);
-		assertSame(carService.getAllCars().size(), 2);
+		assertSame(2,carService.getAllCars().size());
 	}
 
 	@Test
@@ -124,7 +124,7 @@ public class CarServiceTest {
 		carRepo.save(Car1);
 
 		Mockito.when(carRepo.save(Car1)).thenReturn(Car1);
-		assertEquals(Car1.getCarId(), 4578L);
+		assertEquals(4578L,Car1.getCarId());
 	}
 	 @Test
 	    public void testFindByModel() throws Exception{

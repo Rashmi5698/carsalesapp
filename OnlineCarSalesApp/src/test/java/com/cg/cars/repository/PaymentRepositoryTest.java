@@ -86,7 +86,7 @@ public class PaymentRepositoryTest {
 		testEntityManager.remove(payment);
 
 		List<Payment> payments = (List<Payment>) paymentRepository.findAll();
-		Assert.assertEquals(payments.size(), 1);
+		Assert.assertEquals(1,payments.size());
 
 	}
 

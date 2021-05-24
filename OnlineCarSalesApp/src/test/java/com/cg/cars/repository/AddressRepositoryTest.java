@@ -104,7 +104,7 @@ public class AddressRepositoryTest {
 		testEntityManager.remove(address);
 
 		List<Address> addresss = (List<Address>) addressRepository.findAll();
-		Assert.assertEquals(addresss.size(), 1);
+		Assert.assertEquals(1,addresss.size());
 
 	}
 

@@ -10,7 +10,7 @@ public class AdminUtils {
 	}
 
 	public static List<AdminDTO> convertToAdminDtoList(List<Admin> list) {
-		List<AdminDTO> dtolist = new ArrayList<AdminDTO>();
+		List<AdminDTO> dtolist = new ArrayList<>();
 		for (Admin Admin : list)
 			dtolist.add(convertToAdminDto(Admin));
 		return dtolist;

@@ -94,7 +94,7 @@ public class CardRepositoryTest {
 		testEntityManager.remove(card);
 
 		List<Card> cards = (List<Card>) CardRepository.findAll();
-		Assert.assertEquals(cards.size(), 1);
+		Assert.assertEquals(1,cards.size());
 	}
 
 	@Test

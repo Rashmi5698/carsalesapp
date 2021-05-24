@@ -11,7 +11,7 @@ public class UserUtils {
 
 	// converting into screen class
 	public static List<UserDTO> convertToUserDtoList(List<User> list) {
-		List<UserDTO> dtolist = new ArrayList<UserDTO>();
+		List<UserDTO> dtolist = new ArrayList<>();
 		for (User user : list)
 			dtolist.add(convertToUserDto(user));
 		return dtolist;

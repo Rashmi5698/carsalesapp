@@ -50,7 +50,7 @@ public class AddressServiceTest {
 
 		Mockito.when(addressRepo.save(Address)).thenReturn(Address);
 		AddressDTO AddressDTO = AddressUtils.convertToAddressDto(Address);
-		assertEquals(AddressDTO.getAddressId(), 4545L);
+		assertEquals(4545L,AddressDTO.getAddressId());
 	}
 
 	@Test
@@ -65,7 +65,7 @@ public class AddressServiceTest {
 		Address.setPincode(560074L);
 
 		Mockito.when(addressRepo.save(Address)).thenReturn(Address);
-		assertEquals(Address.getAddressId(), 4578L);
+		assertEquals(4578L,Address.getAddressId());
 	}
 
 	@Test
@@ -95,7 +95,7 @@ public class AddressServiceTest {
 //		System.out.println("Service list"+productService.showAllProducts());
 		List<AddressDTO> dto = AddressUtils.convertToAddressDtoList(AddressList);
 //		System.out.println("after converting:"+dto);
-		assertSame(addressService.getAllAddress().size(), 2);
+		assertSame(2,addressService.getAllAddress().size());
 	}
 
 	@Test
@@ -129,6 +129,6 @@ public class AddressServiceTest {
 		addressRepo.save(Address1);
 
 		Mockito.when(addressRepo.save(Address1)).thenReturn(Address1);
-		assertEquals(Address1.getAddressId(), 4578L);
+		assertEquals(4578L,Address1.getAddressId());
 	}
 }

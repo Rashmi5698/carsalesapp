@@ -3,23 +3,17 @@ package com.cg.cars.services.impl;
 import java.util.List;
 import java.util.Optional;
 
-import com.cg.cars.entities.Customer;
+
 import com.cg.cars.entities.Order;
-
 import com.cg.cars.exceptions.OrderNotFoundException;
-import com.cg.cars.model.CustomerDTO;
 import com.cg.cars.model.OrderDTO;
-
 import com.cg.cars.services.OrderService;
-import com.cg.cars.repository.CustomerRepository;
 import com.cg.cars.repository.OrderRepository;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cg.cars.util.CustomerUtils;
 import com.cg.cars.util.OrderUtils;
 
 @Service

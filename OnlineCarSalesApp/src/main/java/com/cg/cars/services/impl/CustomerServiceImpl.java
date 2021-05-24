@@ -3,7 +3,7 @@ package com.cg.cars.services.impl;
 import java.util.List;
 import java.util.Optional;
 
-import com.cg.cars.entities.Car;
+
 import com.cg.cars.entities.Customer;
 import com.cg.cars.exceptions.CustomerNotFoundException;
 import com.cg.cars.model.CustomerDTO;

@@ -41,7 +41,7 @@ public class CarController {
 		LOGGER.info("add-Car URL is opened");
 		LOGGER.info("addCar() is initiated");
 		CarDTO carDTO = carService.addCar(car);
-		ResponseEntity<Object> carResponse = new ResponseEntity<Object>(carDTO, HttpStatus.ACCEPTED);
+		ResponseEntity<Object> carResponse = new ResponseEntity<>(carDTO, HttpStatus.ACCEPTED);
 		LOGGER.info("addCar() has executed");
 		return carResponse;
 	}
@@ -55,12 +55,12 @@ public class CarController {
 	 * @RequestBody: It used to bind the HTTP request/response body with a domain object in method parameter or return type.
 	 ************************************************************************************/
 	@GetMapping("/view-car/{id}")
-	public ResponseEntity getCarById(@PathVariable Long id) throws CarNotFoundException {
+	public ResponseEntity<Object> getCarById(@PathVariable Long id) throws CarNotFoundException {
 		LOGGER.info("view-Car URL is opened");
 		LOGGER.info("viewCar() is initiated");
 		CarDTO carDTO = carService.getCarById(id);
 		LOGGER.info("viewCar() has executed");
-		return new ResponseEntity(carDTO, HttpStatus.OK);
+		return new ResponseEntity<>(carDTO, HttpStatus.OK);
 	}
 
 	/************************************************************************************
@@ -86,12 +86,12 @@ public class CarController {
 	 * @RequestBody: It used to bind the HTTP request/response body with a domain object in method parameter or return type.
 	 ************************************************************************************/
 	@GetMapping("/view-car-byBrand/{brand:.+}")
-	public ResponseEntity findCarByBrand(@PathVariable String brand) {
+	public ResponseEntity<Object> findCarByBrand(@PathVariable String brand) {
 		LOGGER.info("view-all-CarByBrand URL is opened");
 		LOGGER.info("viewAllCarByBrand() is initiated");
 		List<CarDTO> carDTO = carService.getCarsByBrand(brand);
 		LOGGER.info("viewAllCarByBrand() has executed");
-		return new ResponseEntity(carDTO, HttpStatus.OK);
+		return new ResponseEntity<>(carDTO, HttpStatus.OK);
 	}
 	/************************************************************************************
 	 * Method: getAllCarModels
@@ -102,12 +102,12 @@ public class CarController {
 	 ************************************************************************************/
 
 	@GetMapping("/view-car-byModel/{model:.+}")
-	public ResponseEntity findCarByModel(@PathVariable String model) {
+	public ResponseEntity<Object> findCarByModel(@PathVariable String model) {
 		LOGGER.info("view-all-CarByModel URL is opened");
 		LOGGER.info("viewAllCarByModel() is initiated");
 		List<CarDTO> carDTO = carService.getCarsByModel(model);
 		LOGGER.info("viewAllCarByModel() has executed");
-		return new ResponseEntity(carDTO, HttpStatus.OK);
+		return new ResponseEntity<>(carDTO, HttpStatus.OK);
 	}
 	/************************************************************************************
 	 * Method: getAllCarLocation
@@ -117,12 +117,12 @@ public class CarController {
 	 * @RequestBody: It used to bind the HTTP request/response body with a domain object in method parameter or return type.
 	 ************************************************************************************/
 	@GetMapping("/view-car-byLocation/{registrationState:.+}")
-	public ResponseEntity findCarByLocation(@PathVariable String registrationState) {
+	public ResponseEntity<Object> findCarByLocation(@PathVariable String registrationState) {
 		LOGGER.info("view-all-CarByLocation URL is opened");
 		LOGGER.info("viewAllCarByLocation() is initiated");
 		List<CarDTO> carDTO = carService.getCarsByLocation(registrationState);
 		LOGGER.info("viewAllCarByLocation() has executed");
-		return new ResponseEntity(carDTO, HttpStatus.OK);
+		return new ResponseEntity<>(carDTO, HttpStatus.OK);
 	}
 
 	/************************************************************************************
@@ -140,7 +140,7 @@ public class CarController {
 		LOGGER.info("deleteCar() is initiated");
 		carService.deleteCarById(id);
 		LOGGER.info("deleteCar() has executed");
-		return new ResponseEntity("deleted successfully:", HttpStatus.ACCEPTED);
+		return new ResponseEntity<>("deleted successfully:", HttpStatus.ACCEPTED);
 	}
 
 	/************************************************************************************
@@ -152,12 +152,12 @@ public class CarController {
 	 * @RequestBody: It used to bind the HTTP request/response body with a domain object in method parameter or return type.
 	 ************************************************************************************/
 	@PutMapping("/update-car/{id}")
-	public ResponseEntity updateCar(@PathVariable Long id, @RequestBody Car carRequest) throws CarNotFoundException {
+	public ResponseEntity<Object> updateCar(@PathVariable Long id, @RequestBody Car carRequest) throws CarNotFoundException {
 		LOGGER.info("update-Car URL is opened");
 		LOGGER.info("updateCar() is initiated");
 		carService.updateCarById(id, carRequest);
 		LOGGER.info("updateCar() has executed");
-		return new ResponseEntity("Updated ", HttpStatus.OK);
+		return new ResponseEntity<>("Updated ", HttpStatus.OK);
 	}
 
 }

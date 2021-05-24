@@ -23,7 +23,7 @@ public class Customer {
 			@JoinColumn(name = "ADDRESS_ID") })
 	private List<Address> address = new ArrayList<>();
 
-	@OneToMany(cascade = { CascadeType.ALL, CascadeType.DETACH, CascadeType.REFRESH })
+	@OneToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "CUSTOMER_APPOINTMENT", joinColumns = {
 			@JoinColumn(name = "CUSTOMER_ID") }, inverseJoinColumns = { @JoinColumn(name = "APPOINTMENT_ID") })
 	private List<Appointment> appointment = new ArrayList<>();
@@ -91,26 +91,25 @@ public class Customer {
 		return address;
 	}
 
-	/*
-	 * public void setAddress(List<Address> address) { this.address = address; }
-	 */
+	public void setAddress(List<Address> address) {
+		this.address = address;
+	}
 
 	public List<Appointment> getAppointment() {
 		return appointment;
 	}
 
-	/*
-	 * public void setAppointment(List<Appointment> appointment) { this.appointment
-	 * = appointment; }
-	 */
+	public void setAppointment(List<Appointment> appointment) {
+		this.appointment = appointment;
+	}
 
 	public List<Order> getIorder() {
 		return iorder;
 	}
 
-	/*
-	 * public void setIorder(List<Order> iorder) { this.iorder = iorder; }
-	 */
+	public void setIorder(List<Order> iorder) {
+		this.iorder = iorder;
+	}
 
 	public List<Car> getCar() {
 		return car;

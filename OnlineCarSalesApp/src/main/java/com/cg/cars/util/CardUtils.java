@@ -10,7 +10,7 @@ public class CardUtils {
 	}
 
 	public static List<CardDTO> convertToCardDtoList(List<Card> list) {
-		List<CardDTO> dtolist = new ArrayList<CardDTO>();
+		List<CardDTO> dtolist = new ArrayList<>();
 		for (Card card : list)
 			dtolist.add(convertToCardDto(card));
 		return dtolist;

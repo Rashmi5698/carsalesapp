@@ -10,7 +10,7 @@ public class AppointmentUtils {
 	}
 
 	public static List<AppointmentDTO> convertToAppointmentDtoList(List<Appointment> list) {
-		List<AppointmentDTO> dtolist = new ArrayList<AppointmentDTO>();
+		List<AppointmentDTO> dtolist = new ArrayList<>();
 		for (Appointment appointment : list)
 			dtolist.add(convertToAppointmentDto(appointment));
 		return dtolist;

@@ -44,7 +44,7 @@ public class PaymentController {
 		PaymentDTO paymentDTO = null;
 		ResponseEntity<Object> paymentResponse = null;
 		paymentDTO =paymentService.addPayment(payment);
-		paymentResponse = new ResponseEntity<Object>(paymentDTO, HttpStatus.ACCEPTED);
+		paymentResponse = new ResponseEntity<>(paymentDTO, HttpStatus.ACCEPTED);
 		LOGGER.info("addPayment() has executed");
 		return paymentResponse;
 	}
@@ -57,12 +57,12 @@ public class PaymentController {
 	 * @RequestBody: It used to bind the HTTP request/response body with a domain object in method parameter or return type.
 	 ************************************************************************************/
 	@GetMapping("/view-payment/{id}")
-	public ResponseEntity getPaymentById(@PathVariable Long id) throws  PaymentNotFoundException{
+	public ResponseEntity<Object> getPaymentById(@PathVariable Long id) throws  PaymentNotFoundException{
 		LOGGER.info("view-Payment URL is opened");
 		LOGGER.info("viewPayment() is initiated");
-		PaymentDTO PaymentDTO = paymentService.getPaymentById(id);
+		PaymentDTO paymentDTO = paymentService.getPaymentById(id);
 		LOGGER.info("viewPayment() has executed");
-		return new ResponseEntity(PaymentDTO, HttpStatus.OK);
+		return new ResponseEntity<>(paymentDTO, HttpStatus.OK);
 	}
 	/************************************************************************************
 	 * Method: getAllPayments 
@@ -93,7 +93,7 @@ public class PaymentController {
 		LOGGER.info("deletePayment() is initiated");
 		paymentService.deletePaymentById(id);
 		LOGGER.info("deletePayment() has executed");
-		return new ResponseEntity("deleted successfully:", HttpStatus.ACCEPTED);
+		return new ResponseEntity<>("deleted successfully:", HttpStatus.ACCEPTED);
 }
 	
 	/************************************************************************************
@@ -106,12 +106,12 @@ public class PaymentController {
 	 ************************************************************************************/
 	@PutMapping("/update-payment/{id}")
 	
-    public ResponseEntity updatePayment(@PathVariable Long id, @RequestBody Payment paymentRequest) throws PaymentNotFoundException {
+    public ResponseEntity<Object> updatePayment(@PathVariable Long id, @RequestBody Payment paymentRequest) throws PaymentNotFoundException {
 		LOGGER.info("update-Payment URL is opened");
 		LOGGER.info("updatePayment() is initiated");
 		paymentService.updatePaymentById(id,paymentRequest);
 		LOGGER.info("updatePayment() has executed");
-		return new ResponseEntity("Updated ", HttpStatus.OK);
+		return new ResponseEntity<>("Updated ", HttpStatus.OK);
 	}
 
 

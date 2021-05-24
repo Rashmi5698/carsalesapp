@@ -88,7 +88,7 @@ public class OrderRepositoryTest {
 		testEntityManager.remove(order);
 
 		List<Order> orders = (List<Order>) orderRepository.findAll();
-		Assert.assertEquals(orders.size(), 1);
+		Assert.assertEquals(1,orders.size());
 
 	}
 

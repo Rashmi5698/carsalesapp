@@ -10,23 +10,13 @@ public class CarUtils {
 	}
 
 	public static List<CarDTO> convertToCarDtoList(List<Car> list) {
-		List<CarDTO> dtolist = new ArrayList<CarDTO>();
+		List<CarDTO> dtolist = new ArrayList<>();
 		for (Car car : list)
 			dtolist.add(convertToCarDto(car));
 		return dtolist;
 	}
 
-	/*public static Car convertToCar(CarDTO dto) {
-		Car car = new Car();
-		car.setCarId(dto.getCarId());
-		car.setBrand(dto.getBrand());
-		car.setModel(dto.getModel());
-		car.setVariant(dto.getVariant());
-		car.setRegistrationState(dto.getRegistrationState());
-		car.setRegistrationYear(dto.getRegistrationYear());
-
-		return car;
-	}*/
+	
 
 	public static CarDTO convertToCarDto(Car car) {
 		CarDTO dto = new CarDTO();

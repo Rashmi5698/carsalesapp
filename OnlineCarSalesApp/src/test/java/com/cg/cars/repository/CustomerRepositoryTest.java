@@ -103,7 +103,7 @@ public class CustomerRepositoryTest {
 		testEntityManager.remove(customer);
 
 		List<Customer> customers = (List<Customer>) CustomerRepository.findAll();
-		Assert.assertEquals(customers.size(), 1);
+		Assert.assertEquals(customers.size(),1);
 
 	}
 

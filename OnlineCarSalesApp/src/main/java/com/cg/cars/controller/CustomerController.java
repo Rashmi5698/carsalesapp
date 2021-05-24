@@ -41,7 +41,7 @@ public class CustomerController {
 		CustomerDTO customerDTO = null;
 		ResponseEntity<Object> customerResponse = null;
 		customerDTO = customerService.addCustomer(customer);
-		customerResponse = new ResponseEntity<Object>(customerDTO, HttpStatus.ACCEPTED);
+		customerResponse = new ResponseEntity<>(customerDTO, HttpStatus.ACCEPTED);
 		LOGGER.info("addCustomer() has executed");
 		return customerResponse;
 	}
@@ -55,12 +55,12 @@ public class CustomerController {
 	 * @RequestBody: It used to bind the HTTP request/response body with a domain object in method parameter or return type.
 	 ************************************************************************************/
 	@GetMapping("/view-customer/{id}")
-	public ResponseEntity getcustomerById(@PathVariable Long id) throws CustomerNotFoundException {
+	public ResponseEntity<Object> getcustomerById(@PathVariable Long id) throws CustomerNotFoundException {
 		LOGGER.info("view-Customer URL is opened");
 		LOGGER.info("viewCustomer() is initiated");
 		CustomerDTO customerDTO = customerService.getCustomerById(id);
 		LOGGER.info("viewCustomer() has executed");
-		return new ResponseEntity(customerDTO, HttpStatus.OK);
+		return new ResponseEntity<>(customerDTO, HttpStatus.OK);
 	}
 
 	/************************************************************************************
@@ -88,13 +88,13 @@ public class CustomerController {
 	 ************************************************************************************/
 
 	@PutMapping("/update-customer/{id}")
-	public ResponseEntity updatecustomer(@PathVariable Long id, @RequestBody Customer customerRequest)
+	public ResponseEntity<Object> updatecustomer(@PathVariable Long id, @RequestBody Customer customerRequest)
 			throws CustomerNotFoundException {
 		LOGGER.info("update-Customer URL is opened");
 		LOGGER.info("updateCustomer() is initiated");
 		customerService.updateCustomer(id, customerRequest);
 		LOGGER.info("updateCustomer() has executed");
-		return new ResponseEntity("Updated ", HttpStatus.OK);
+		return new ResponseEntity<>("Updated ", HttpStatus.OK);
 
 	}
 
@@ -112,7 +112,7 @@ public class CustomerController {
 		LOGGER.info("deleteCustomer() is initiated");
 		customerService.deleteCustomerById(id);
 		LOGGER.info("delteCustomer() has executed");
-		return new ResponseEntity("deleted successfully:", HttpStatus.ACCEPTED);
+		return new ResponseEntity<>("deleted successfully:", HttpStatus.ACCEPTED);
 
 	}
 

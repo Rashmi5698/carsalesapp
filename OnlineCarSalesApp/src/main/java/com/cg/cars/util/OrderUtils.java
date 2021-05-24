@@ -11,7 +11,7 @@ public class OrderUtils {
 
 	
 	public static List<OrderDTO> convertToOrderDtoList(List<Order> list) {
-		List<OrderDTO> dtolist = new ArrayList<OrderDTO>();
+		List<OrderDTO> dtolist = new ArrayList<>();
 		for (Order order : list)
 			dtolist.add(convertToOrderDto(order));
 		return dtolist;

@@ -43,13 +43,13 @@ public class CardServiceImpl implements CardService {
 
 	public CardDTO deleteCardById(Long id) throws CardNotFoundException {
 		LOGGER.info("deleteCard() service is initiated");
-		Card Cardexist = cardRepository.findById(id).orElse(null);
-		if (Cardexist == null)
+		Card cardexist = cardRepository.findById(id).orElse(null);
+		if (cardexist == null)
 			throw new CardNotFoundException("Card with id not present");
 		else
-			cardRepository.delete(Cardexist);
+			cardRepository.delete(cardexist);
 		LOGGER.info("deleteCard() service has executed");
-		return CardUtils.convertToCardDto(Cardexist);
+		return CardUtils.convertToCardDto(cardexist);
 	}
 
 	public Card updateCardById(Long id, Card cardRequest) throws CardNotFoundException {

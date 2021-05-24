@@ -22,6 +22,7 @@ import com.cg.cars.util.PaymentUtils;
 @Service
 public class PaymentServiceImpl implements PaymentService {
 	static final Logger LOGGER = LoggerFactory.getLogger(PaymentServiceImpl.class);
+	String paymentError="Payment with id not present";
 
 	@Autowired
 	private PaymentRepository paymentRepository;
@@ -41,7 +42,7 @@ public class PaymentServiceImpl implements PaymentService {
 			LOGGER.info("getPaymentById() service has executed");
 			return PaymentUtils.convertToPaymentDto(payment);
 		} else {
-			throw new PaymentNotFoundException("payment with id not present");
+			throw new PaymentNotFoundException(paymentError);
 		}
 
 	}
@@ -57,7 +58,7 @@ public class PaymentServiceImpl implements PaymentService {
 		LOGGER.info("deletePayment() service is initiated");
 		Payment paymentexist = paymentRepository.findById(id).orElse(null);
 		if (paymentexist == null)
-			throw new PaymentNotFoundException("payment with id not present");
+			throw new PaymentNotFoundException(paymentError);
 		else
 			paymentRepository.delete(paymentexist);
 		LOGGER.info("deletePayment() service has executed");
@@ -71,7 +72,7 @@ public class PaymentServiceImpl implements PaymentService {
 			payment.setStatus(paymentRequest.getStatus());
 			LOGGER.info("updatePayment() service has executed");
 			return paymentRepository.save(payment);
-		}).orElseThrow(() -> new PaymentNotFoundException("payment with id not present"));
+		}).orElseThrow(() -> new PaymentNotFoundException(paymentError));
 
 	}
 }

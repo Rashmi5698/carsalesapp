@@ -42,7 +42,7 @@ public class CardController {
 		CardDTO cardDTO = null;
 		ResponseEntity<Object> cardResponse = null;
 		cardDTO = cardService.addCard(card);
-		cardResponse = new ResponseEntity<Object>(cardDTO, HttpStatus.ACCEPTED);
+		cardResponse = new ResponseEntity<>(cardDTO, HttpStatus.ACCEPTED);
 		LOGGER.info("addCard() has executed");
 		return cardResponse;
 	}
@@ -56,12 +56,12 @@ public class CardController {
 	 * @RequestBody: It used to bind the HTTP request/response body with a domain object in method parameter or return type.
 	 ************************************************************************************/
 	@GetMapping("/view-card/{id}")
-	public ResponseEntity getCardById(@PathVariable Long id) throws CardNotFoundException {
+	public ResponseEntity<Object> getCardById(@PathVariable Long id) throws CardNotFoundException {
 		LOGGER.info("view-Card URL is opened");
 		LOGGER.info("viewCard() is initiated");
-		CardDTO CardDTO = cardService.getCardById(id);
+		CardDTO cardDTO = cardService.getCardById(id);
 		LOGGER.info("viewCard() has executed");
-		return new ResponseEntity(CardDTO, HttpStatus.OK);
+		return new ResponseEntity<>(cardDTO, HttpStatus.OK);
 	}
 
 	/************************************************************************************
@@ -94,7 +94,7 @@ public class CardController {
 		LOGGER.info("deleteCard() is initiated");
 		cardService.deleteCardById(id);
 		LOGGER.info("deleteCard() has executed");
-		return new ResponseEntity("deleted successfully:", HttpStatus.ACCEPTED);
+		return new ResponseEntity<>("deleted successfully:", HttpStatus.ACCEPTED);
 	}
 
 	/************************************************************************************
@@ -106,13 +106,13 @@ public class CardController {
 	 * @RequestBody: It used to bind the HTTP request/response body with a domain object in method parameter or return type.
 	 ************************************************************************************/
 	@PutMapping("/update-card/{id}")
-	public ResponseEntity updatePayment(@PathVariable Long id, @RequestBody Card cardRequest)
+	public ResponseEntity<Object> updatePayment(@PathVariable Long id, @RequestBody Card cardRequest)
 			throws CardNotFoundException {
 		LOGGER.info("update-Card URL is opened");
 		LOGGER.info("updateCard() is initiated");
 		cardService.updateCardById(id, cardRequest);
 		LOGGER.info("updateCard() has executed");
-		return new ResponseEntity("Updated ", HttpStatus.OK);
+		return new ResponseEntity<>("Updated ", HttpStatus.OK);
 	}
 
 }

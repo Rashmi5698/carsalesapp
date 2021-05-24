@@ -9,10 +9,8 @@ public class Admin {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long adminId;
-
 	private String password;
-
-	@OneToOne(cascade = { CascadeType.ALL, CascadeType.DETACH, CascadeType.REFRESH })
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "user_id")
 	private User user;
 

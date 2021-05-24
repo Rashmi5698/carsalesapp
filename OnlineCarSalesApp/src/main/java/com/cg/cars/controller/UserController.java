@@ -43,7 +43,7 @@ public class UserController {
 		UserDTO userDTO = null;
 		ResponseEntity<Object> userResponse = null;
 		userDTO = userService.addUser(user);
-		userResponse = new ResponseEntity<Object>(userDTO, HttpStatus.ACCEPTED);
+		userResponse = new ResponseEntity<>(userDTO, HttpStatus.ACCEPTED);
 		LOGGER.info("addUser() has executed");
 		return userResponse;
 	}
@@ -57,12 +57,12 @@ public class UserController {
 	 * @RequestBody: It used to bind the HTTP request/response body with a domain object in method parameter or return type.
 	 ************************************************************************************/
 	@GetMapping("/view-user/{id}")
-	public ResponseEntity getUserById(@PathVariable Long id) throws UserNotFoundException {
+	public ResponseEntity<Object> getUserById(@PathVariable Long id) throws UserNotFoundException {
 		LOGGER.info("view-User URL is opened");
 		LOGGER.info("viewUser() is initiated");
 		UserDTO userDTO = userService.getUserById(id);
 		LOGGER.info("viewUser() has executed");
-		return new ResponseEntity(userDTO, HttpStatus.OK);
+		return new ResponseEntity<>(userDTO, HttpStatus.OK);
 	}
 
 	/************************************************************************************
@@ -96,7 +96,7 @@ public class UserController {
 		LOGGER.info("deleteUser() is initiated");
 		userService.deleteUserById(id);
 		LOGGER.info("deleteUser() has executed");
-		return new ResponseEntity("deleted successfully:", HttpStatus.ACCEPTED);
+		return new ResponseEntity<>("deleted successfully:", HttpStatus.ACCEPTED);
 	}
 
 	/************************************************************************************
@@ -109,13 +109,13 @@ public class UserController {
 	 ************************************************************************************/
 	@PutMapping("/update-user/{id}")
 
-	public ResponseEntity updateUser(@PathVariable Long id, @RequestBody User userRequest)
+	public ResponseEntity<Object> updateUser(@PathVariable Long id, @RequestBody User userRequest)
 			throws UserNotFoundException {
 		LOGGER.info("update-User URL is opened");
 		LOGGER.info("updateUser() is initiated");
 		userService.updateUserById(id, userRequest);
 		LOGGER.info("updateUser() has executed");
-		return new ResponseEntity("Updated ", HttpStatus.OK);
+		return new ResponseEntity<>("Updated ", HttpStatus.OK);
 	}
 
 }

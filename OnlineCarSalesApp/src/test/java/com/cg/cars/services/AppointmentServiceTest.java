@@ -44,7 +44,7 @@ public class AppointmentServiceTest {
 
 		Mockito.when(appointmmentRepo.save(Appointment)).thenReturn(Appointment);
 		AppointmentDTO AppointmentDTO = AppointmentUtils.convertToAppointmentDto(Appointment);
-		assertEquals(AppointmentDTO.getAppointmentId(), 65L);
+		assertEquals(65L,AppointmentDTO.getAppointmentId());
 	}
 
 	@Test
@@ -57,7 +57,7 @@ public class AppointmentServiceTest {
 		Appointment.setPreferredTime(LocalTime.now());
 
 		Mockito.when(appointmmentRepo.save(Appointment)).thenReturn(Appointment);
-		assertEquals(Appointment.getAppointmentId(), 65L);
+		assertEquals(65L,Appointment.getAppointmentId());
 	}
 
 	@Test
@@ -83,7 +83,7 @@ public class AppointmentServiceTest {
 //		System.out.println("Service list"+productService.showAllProducts());
 		List<AppointmentDTO> dto = AppointmentUtils.convertToAppointmentDtoList(AppointmentsList);
 //		System.out.println("after converting:"+dto);
-		assertSame(appointmentService.getAllAppointments().size(), 2);
+		assertSame(2,appointmentService.getAllAppointments().size());
 	}
 
 	@Test
@@ -112,7 +112,7 @@ public class AppointmentServiceTest {
 		appointmmentRepo.save(Appointment);
 
 		Mockito.when(appointmmentRepo.save(Appointment)).thenReturn(Appointment);
-		assertEquals(Appointment.getAppointmentId(), 65L);
+		assertEquals(65L,Appointment.getAppointmentId());
 	}
 
 }

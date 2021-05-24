@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import com.cg.cars.entities.Car;
-import com.cg.cars.entities.Card;
 import com.cg.cars.exceptions.CarNotFoundException;
 import com.cg.cars.services.CarService;
 import com.cg.cars.model.CarDTO;

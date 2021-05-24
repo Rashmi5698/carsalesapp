@@ -48,7 +48,7 @@ public class AdminServiceTest {
 
 		Mockito.when(adminRepo.save(Admin)).thenReturn(Admin);
 		AdminDTO AdminDTO = AdminUtils.convertToAdminDto(Admin);
-		assertEquals(AdminDTO.getAdminId(), 45L);
+		assertEquals(45L,AdminDTO.getAdminId());
 	}
 
 	@Test
@@ -58,7 +58,7 @@ public class AdminServiceTest {
 		Admin.setPassword("rtef6");
 
 		Mockito.when(adminRepo.save(Admin)).thenReturn(Admin);
-		assertEquals(Admin.getAdminId(), 45L);
+		assertEquals(45L,Admin.getAdminId());
 	}
 
 	@Test
@@ -78,7 +78,7 @@ public class AdminServiceTest {
 //		System.out.println("Service list"+productService.showAllProducts());
 		List<AdminDTO> dto = AdminUtils.convertToAdminDtoList(AdminsList);
 //		System.out.println("after converting:"+dto);
-		assertSame(adminService.getAllAdmins().size(), 2);
+		assertSame(2,adminService.getAllAdmins().size());
 	}
 
 	@Test
@@ -102,7 +102,7 @@ public class AdminServiceTest {
 		adminRepo.save(Admin);
 
 		Mockito.when(adminRepo.save(Admin)).thenReturn(Admin);
-		assertEquals(Admin.getAdminId(), 45L);
+		assertEquals(45L,Admin.getAdminId());
 	}
 	
 	

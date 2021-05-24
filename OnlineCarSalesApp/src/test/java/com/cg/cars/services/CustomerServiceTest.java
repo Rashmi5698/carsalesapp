@@ -48,7 +48,7 @@ public class CustomerServiceTest {
 
 		Mockito.when(customerRepo.save(Customer)).thenReturn(Customer);
 		CustomerDTO CustomerDTO = CustomerUtils.convertToCustomerDto(Customer);
-		assertEquals(CustomerDTO.getUserId(), 45L);
+		assertEquals(CustomerDTO.getUserId(),45L);
 	}
 
 	@Test
@@ -61,7 +61,7 @@ public class CustomerServiceTest {
 		Customer.setDob(LocalDate.now());
 
 		Mockito.when(customerRepo.save(Customer)).thenReturn(Customer);
-		assertEquals(Customer.getUserId(), 45L);
+		assertEquals(Customer.getUserId(),45L);
 	}
 
 	@Test
@@ -87,7 +87,7 @@ public class CustomerServiceTest {
 //		System.out.println("Service list"+productService.showAllProducts());
 		List<CustomerDTO> dto = CustomerUtils.convertToCustomerDtoList(CustomerList);
 //		System.out.println("after converting:"+dto);
-		assertSame(customerService.getAllCustomer().size(), 2);
+		assertSame(customerService.getAllCustomer().size(),2);
 	}
 
 	@Test
@@ -117,6 +117,6 @@ public class CustomerServiceTest {
 		customerRepo.save(Customer1);
 
 		Mockito.when(customerRepo.save(Customer1)).thenReturn(Customer1);
-		assertEquals(Customer1.getUserId(), 45L);
+		assertEquals(Customer1.getUserId(),45L);
 	}
 }

@@ -2,17 +2,13 @@ package com.cg.cars.repository;
 
 import org.junit.runner.RunWith;
 import com.cg.cars.entities.Admin;
-import com.cg.cars.entities.User;
 import com.cg.cars.exceptions.AdminNotFoundException;
-
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
-import java.util.Date;
 import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -81,7 +77,7 @@ public class AdminRepositoryTest {
 		testEntityManager.remove(admin);
 
 		List<Admin> admins = (List<Admin>) adminRepository.findAll();
-		Assert.assertEquals(admins.size(), 1);
+		Assert.assertEquals(1,admins.size());
 
 	}
 

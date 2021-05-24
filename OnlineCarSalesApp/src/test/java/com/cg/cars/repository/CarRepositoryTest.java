@@ -101,7 +101,7 @@ public class CarRepositoryTest {
 		testEntityManager.remove(car);
 
 		List<Car> Cars = (List<Car>) carRepository.findAll();
-		Assert.assertEquals(Cars.size(), 1);
+		Assert.assertEquals(1,Cars.size());
 
 	}
 

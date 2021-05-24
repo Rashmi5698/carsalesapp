@@ -36,13 +36,13 @@ public class AdminController {
 	 * @RequestBody: It used to bind the HTTP request/response body with a domain  object in method parameter or return type.
 	 ************************************************************************************/
 	@PostMapping("/add-Admin")
-	public ResponseEntity<Object> insertAdmin(@RequestBody Admin admin)throws AdminNotFoundException {
+	public ResponseEntity<Object> insertAdmin(@RequestBody Admin admin) {
 		LOGGER.info("add-Admin URL is opened");
 		LOGGER.info("addAdmin() is initiated");
 		AdminDTO adminDTO = null;
 		ResponseEntity<Object> adminResponse = null;
 		adminDTO = adminService.addAdmin(admin);
-		adminResponse = new ResponseEntity<Object>(adminDTO, HttpStatus.ACCEPTED);
+		adminResponse = new ResponseEntity<>(adminDTO, HttpStatus.ACCEPTED);
 		LOGGER.info("addAdmin() has executed");
 		return adminResponse;
 	}
@@ -56,12 +56,12 @@ public class AdminController {
 	 * @RequestBody: It used to bind the HTTP request/response body with a domain object in method parameter or return type.
 	 ************************************************************************************/
 	@GetMapping("/view-Admin/{id}")
-	public ResponseEntity getAdminById(@PathVariable Long id) throws AdminNotFoundException {
+	public ResponseEntity<Object> getAdminById(@PathVariable Long id) throws AdminNotFoundException {
 		LOGGER.info("view-Admin URL is opened");
 		LOGGER.info("viewAdmin() is initiated");
 		AdminDTO adminDTO = adminService.getAdminById(id);
 		LOGGER.info("viewAdmin() has executed");
-		return new ResponseEntity(adminDTO, HttpStatus.OK);
+		return new ResponseEntity<>(adminDTO, HttpStatus.OK);
 	}
 
 	/************************************************************************************
@@ -94,7 +94,7 @@ public class AdminController {
 		LOGGER.info("deleteAdmin() is initiated");
 		adminService.deleteAdminById(id);
 		LOGGER.info("deleteAdmin() has executed");
-		return new ResponseEntity("deleted successfully:", HttpStatus.ACCEPTED);
+		return new ResponseEntity<>("deleted successfully:", HttpStatus.ACCEPTED);
 	}
 
 	/************************************************************************************
@@ -107,13 +107,13 @@ public class AdminController {
 	 ************************************************************************************/
 	@PutMapping("/update-Admin/{id}")
 
-	public ResponseEntity updateAdmin(@PathVariable Long id, @RequestBody Admin adminRequest)
+	public ResponseEntity<Object> updateAdmin(@PathVariable Long id, @RequestBody Admin adminRequest)
 			throws AdminNotFoundException {
 		LOGGER.info("update-Admin URL is opened");
 		LOGGER.info("updateAdmin() is initiated");
 		adminService.updateAdminById(id, adminRequest);
 		LOGGER.info("updateAdmin() has executed");
-		return new ResponseEntity("Updated ", HttpStatus.OK);
+		return new ResponseEntity<>("Updated ", HttpStatus.OK);
 	}
 
 }

@@ -42,7 +42,7 @@ public class CardServiceTest {
 
 		Mockito.when(cardRepo.save(card)).thenReturn(card);
 		CardDTO CardDTO = CardUtils.convertToCardDto(card);
-		assertEquals(CardDTO.getCardNumber(), 467884L);
+		assertEquals(467884L,CardDTO.getCardNumber());
 	}
 
 	@Test
@@ -54,7 +54,7 @@ public class CardServiceTest {
 		card.setCvv(45);
 
 		Mockito.when(cardRepo.save(card)).thenReturn(card);
-		assertEquals(card.getCardNumber(), 467884L);
+		assertEquals(467884L,card.getCardNumber());
 	}
 
 	@Test
@@ -78,7 +78,7 @@ public class CardServiceTest {
 //		System.out.println("Service list"+productService.showAllProducts());
 		List<CardDTO> dto = CardUtils.convertToCardDtoList(cardsList);
 //		System.out.println("after converting:"+dto);
-		assertSame(cardService.getAllCards().size(), 2);
+		assertSame(2,cardService.getAllCards().size());
 	}
 
 	@Test
@@ -106,7 +106,7 @@ public class CardServiceTest {
 		cardRepo.save(card);
 
 		Mockito.when(cardRepo.save(card)).thenReturn(card);
-		assertEquals(card.getCardNumber(), 467884L);
+		assertEquals(467884L,card.getCardNumber());
 	}
 
 }

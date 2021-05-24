@@ -8,7 +8,7 @@ import com.cg.cars.model.CustomerDTO;
 
 public interface CustomerService {
 
-	public CustomerDTO addCustomer(Customer Customer);
+	public CustomerDTO addCustomer(Customer customer);
 
 	public CustomerDTO getCustomerById(Long id) throws CustomerNotFoundException;
 
@@ -16,6 +16,6 @@ public interface CustomerService {
 
 	public CustomerDTO deleteCustomerById(Long id) throws CustomerNotFoundException;
 
-	public Customer updateCustomer(Long id, Customer CustomerRequest) throws CustomerNotFoundException;
+	public Customer updateCustomer(Long id, Customer customerRequest) throws CustomerNotFoundException;
 
 }

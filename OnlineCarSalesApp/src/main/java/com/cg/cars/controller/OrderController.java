@@ -42,7 +42,7 @@ public class OrderController {
 		OrderDTO orderDTO = null;
 		ResponseEntity<Object> orderResponse = null;
 		orderDTO = orderService.addOrder(order);
-		orderResponse = new ResponseEntity<Object>(orderDTO, HttpStatus.ACCEPTED);
+		orderResponse = new ResponseEntity<>(orderDTO, HttpStatus.ACCEPTED);
 		LOGGER.info("addOrder() has executed");
 		return orderResponse;
 	}
@@ -56,12 +56,12 @@ public class OrderController {
 	 * @RequestBody: It used to bind the HTTP request/response body with a domain object in method parameter or return type.
 	 ************************************************************************************/
 	@GetMapping("/view-order/{id}")
-	public ResponseEntity getOrderById(@PathVariable Long id) throws OrderNotFoundException {
+	public ResponseEntity<Object> getOrderById(@PathVariable Long id) throws OrderNotFoundException {
 		LOGGER.info("view-Order URL is opened");
 		LOGGER.info("viewOrder() is initiated");
 		OrderDTO orderDTO = orderService.getOrderById(id);
 		LOGGER.info("viewOrder() has executed");
-		return new ResponseEntity(orderDTO, HttpStatus.OK);
+		return new ResponseEntity<>(orderDTO, HttpStatus.OK);
 	}
 
 	/************************************************************************************
@@ -74,13 +74,13 @@ public class OrderController {
 	 ************************************************************************************/
 
 	@PutMapping("/update-order/{id}")
-	public ResponseEntity updateOrderById(@PathVariable Long id, @RequestBody Order orderRequest)
+	public ResponseEntity<Object> updateOrderById(@PathVariable Long id, @RequestBody Order orderRequest)
 			throws OrderNotFoundException {
 		LOGGER.info("update-Order URL is opened");
 		LOGGER.info("updateOrder() is initiated");
 		orderService.updateOrderById(id, orderRequest);
 		LOGGER.info("updateOrder() has executed");
-		return new ResponseEntity("Updated ", HttpStatus.OK);
+		return new ResponseEntity<>("Updated ", HttpStatus.OK);
 	}
 
 	/************************************************************************************
@@ -112,7 +112,7 @@ public class OrderController {
 		LOGGER.info("delete-Order() is initiated");
 		orderService.deleteOrderById(id);
 		LOGGER.info("delete-Order() has executed");
-		return new ResponseEntity("deleted successfully:", HttpStatus.ACCEPTED);
+		return new ResponseEntity<>("deleted successfully:", HttpStatus.ACCEPTED);
 
 	}
 }
